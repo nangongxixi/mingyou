@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<!--[if IE 8 ]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9 ]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en"> <!--<![endif]-->
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <link rel='icon' href='{$smarty.const.ADMIN_IMG_URL}bitbug_favicon.ico' type=‘image/x-ico’ />
+        <title>四川智美高科科技有限公司 - 运维工作管理系统 - 填写日志</title>
+        <!--[if lt IE 9]>
+        <script src="js/html5shiv.js"></script>
+        <![endif]-->
+        <link href="{$smarty.const.ADMIN_CSS_URL}regular/normalize.css" rel="stylesheet"/>
+        <link href="{$smarty.const.ADMIN_CSS_URL}regular/jquery-ui.css" rel="stylesheet"/>
+        <link href="{$smarty.const.ADMIN_CSS_URL}regular/jquery.idealforms.min.css" rel="stylesheet" media="screen"/>
+        <script src="{$smarty.const.ADMIN_CSS_URL}jeDate/jedate.js"></script>
+        {literal}
+        <style type="text/css">
+            body{font:normal 15px/1.5 Arial, Helvetica, Free Sans, sans-serif;color: #222;background:url(/public/Admin/img/pattern.png);overflow-y:scroll;padding:30px 0 0 0;}
+            #my-form{width:755px;margin:0 auto;border:1px solid #ccc;padding:3em;border-radius:3px;box-shadow:0 0 2px rgba(0,0,0,.2);}
+            #comments{width:350px;height:100px;}
+        </style>
+        {/literal}
+
+    </head>
+    <body>
+        <div class="row">
+            <div class="eightcol last">
+                <p style="text-align: center"><img src="/public/Admin/img/log.png"></p>
+                <!-- Begin Form -->
+                <form id="my-form" action="{$smarty.const.__SELF__}" method="post">                    
+                    <section name="请【{$smarty.session.mg_realname}】填写日志">
+                        <div><label>项目名称:</label>
+                            <select id="log_name" name="log_name">
+                                <option value="default">——— 选择项目名称 ———</option>
+                                {foreach $plog as $k => $v}
+                                <option value='{$v.list_id}'>
+                                    {$v.list_name}<br />                                                    
+                                {foreach $zlog as $vv}
+                                {if $v.list_id == $vv.list_pid}
+                                <option value='{$vv.list_id}' class="l">&nbsp;&nbsp;&nbsp;├ {$vv.list_name}</option>
+                                {/if}                                                        
+                                {/foreach}                                                    
+                                </option>
+                                {/foreach}
+                            </select>
+                        </div> 
+                        <div><label>事件报告时间：</label>
+                            <input name="log_reported_time" type="text" id="dateinfo" placeholder="请选择时间"  readonly>
+                        </div>
+                        <div><label>报告人电话:</label><input type="tel" name="log_phone" data-ideal="required phone"/></div>
+                        <div><label>事件详细描述：</label><textarea id="log_describe" name="log_describe" data-ideal="required"></textarea></div>
+                    </section>
+
+                    <div><hr/></div>
+
+                    <div>
+                        <button type="submit">提交</button>
+                        <!--<button id="reset" type="button">重置</button>-->
+                    </div>
+                    <div style="float:right; margin-top: 15px"><a href="logout" style="color:#ccc"> Logout >></a></div>
+
+                </form>
+                <!-- End Form -->
+            </div>
+        </div>
+
+        <script type="text/javascript" src="{$smarty.const.ADMIN_JS_URL}regular/jquery-1.8.2.min.js"></script>
+        <script type="text/javascript" src="{$smarty.const.ADMIN_JS_URL}regular/jquery-ui.min.js"></script>
+        <script type="text/javascript" src="{$smarty.const.ADMIN_JS_URL}regular/jquery.idealforms.js"></script>
+        {literal}
+        <script type="text/javascript">
+
+            jeDate({
+                dateCell: "#dateinfo",
+                format: "YYYY-MM-DD hh:mm:ss",
+                isinitVal: true,
+                isTime: true, //isClear:false,
+                minDate: "2014-09-19 00:00:00"
+            })
+            var options = {
+                onFail: function () {
+                    alert('有' + $myform.getInvalid().length + '个项目填写不正确！')
+                },
+                inputs: {
+                    'log_reported_time': {
+                        filters: 'required log_reported_time',
+                        data: {
+                            //ajax: { url:'validate.php' }
+                        }
+                    },
+                    'log_describe': {
+                        filters: 'required min max',
+                        data: {min: 10, max: 140}
+                    },
+                    'log_name': {
+                        filters: 'exclude',
+                        data: {exclude: ['default']},
+                        errors: {
+                            exclude: '必须选择项目名称.'
+                        }
+                    }
+                }
+
+            };
+
+            var $myform = $('#my-form').idealforms(options).data('idealforms');
+
+            $('#reset').click(function () {
+                $myform.reset().fresh().focusFirst()
+            });
+
+            $myform.focusFirst();
+        </script>
+        {/literal}
+    </body>
+</html>

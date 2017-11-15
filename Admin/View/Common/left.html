@@ -1,0 +1,55 @@
+<ul class="sidebar-menu">
+    <li class="header"></li>
+    <!--
+    <li style="cursor:pointer" class="menu active" save="caidan1"  minname="订单信息" address="/index.php/Admin/Apply/showlist">
+        <a href="#">
+            <i class="fa fa-paste"></i><span>订单信息</span>
+        </a>
+    </li>
+    -->
+    <li style="cursor:pointer" class="menu" save="caidan2" minname="文章列表" address="/index.php/Admin/Article/showlist">
+        <a href="#">
+            <i class="fa fa-paste"></i><span>文章管理</span>
+        </a>
+    </li>
+    <li style="cursor:pointer" class="menu" save="caidan4"  minname="类别列表" address="/index.php/Admin/Category/showlist">
+        <a href="#">
+            <i class="fa fa-paste"></i><span>文章类别</span>
+        </a>
+    </li>
+    <li style="cursor:pointer" class="menu" save="caidan3"  minname="用户列表" address="/index.php/Admin/Manager/showlist">
+        <a href="#">
+            <i class="fa fa-user"></i><span>用户管理</span>
+        </a>
+    </li>
+
+</ul>
+
+<!--
+<ul class="sidebar-menu">
+    <li class="header"></li>
+
+    {foreach $pauth_info as $k => $v}
+        {foreach $sauth_info as $kk => $vv}
+                {*当前父级id与外边的id一致，才显示*}
+                {if $vv.auth_pid == $v.auth_id}
+                    <li style="cursor:pointer" class="menu" save="caidan{$kk}" address="{$smarty.const.__MODULE__}/{$vv.auth_c}/{$vv.auth_a}">
+                        <a href="#">
+                            <i class="{$icon[$kk]}"></i><span>{$vv.auth_name}</span>
+                        </a>
+                    </li>
+                {/if}
+        {/foreach}
+    {/foreach}
+
+</ul>
+-->
+
+<script>
+    var menu = localStorage.getItem('menu');
+    for(var i=0; i<$('.sidebar-menu li').length; i++){
+        if(menu ==$('.sidebar-menu li').eq(i).attr('save') ){
+            $('.sidebar-menu li').eq(i).addClass('active');
+        }
+    }
+</script>

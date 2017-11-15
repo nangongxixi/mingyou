@@ -1,0 +1,56 @@
+body, input, select, textarea, button {
+    font-family:"Microsoft Yahei",Helvetica,Arial,Verdana,sans-serif;    
+    font-size: 12px;
+    vertical-align: middle;
+}
+A {
+	COLOR: #036; text-decoration:none
+}
+A:link {
+	COLOR: #036; text-decoration:none
+}
+A:visited {
+	COLOR: #036; text-decoration:none
+}
+A:hover {
+	COLOR: #f60; text-decoration:none
+}
+P {
+	MARGIN: 0px
+}
+.div_search{
+    font-size: 13px;
+    margin: 8px 5px 10px 5px;
+    padding-left: 10px;
+    line-height: 40px;
+    background-color: #E8F2FC;
+    border: solid #d0d0d0 1px;
+    overflow: hidden
+}
+.table_a{
+    border-collapse:collapse;
+    border: 1px solid #d0d0d0
+}
+.table_a td{
+    line-height: 25px;
+    padding: 8px;
+    text-align: left;
+    border:1px #d0d0d0 solid;
+    line-height: 260%;	
+}
+.div_head{
+    font-size: 13px;
+    margin: 10px 5px;
+    padding-left: 10px;
+    line-height: 25px;
+    height:25px;
+    background-color: #E8F2FC;
+    border-bottom: solid #d0d0d0 1px
+}
+img {
+    border: none;
+	vertical-align:middle;
+}
+.errors{
+    color:red;
+}

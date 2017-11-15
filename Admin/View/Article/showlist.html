@@ -1,0 +1,152 @@
+<div class="col-xs-12">
+    <div class="box">
+
+        <div class="box-header" style="/*padding: 27px !important;*/">
+            <button type="button" class="btn btn-success addItem"><i class="fa fa-plus"></i> 新增</button>
+            <div class="box-tools">
+                <div class="col-xs-3 input-group-sm" style="width: 200px;padding-right: 0 !important; margin-right: 15px">
+                    <select class="form-control" name="category_id">
+                        <option value="">-- 请选择分类 --</option>
+                        {foreach $selectList as $kk=>$vv}
+                            <option value="{$vv.category_id}">{$vv.category_name}</option>
+                        {/foreach}
+                    </select>
+                </div>
+                <div class="input-group input-group-sm" style="width: 200px;">
+                    <input type="text" name="title" class="form-control pull-right"
+                           placeholder="请输入文章标题" style="font-size: 14px;width: 200px">
+                    <div class="input-group-btn" id="search" href="{$smarty.const.__MODULE__}/article/showlist">
+                        <button type="submit" class="btn btn-default"><i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <div class="input-group-btn" id="reset" href="{$smarty.const.__MODULE__}/article/showlist" style="padding-left: 15px">
+                        <button type="submit" class="btn btn-default">重置</button>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+
+        <div class="box-body table-responsive no-padding" id="contentinfo">
+            <table class="table table-hover">
+                <tbody>
+                <tr>
+                    <th>ID</th>
+                    <th>标题</th>
+                    <th>所属类别</th>
+                    <th>内容描述</th>
+                    <th>排序号</th>
+                    <th>创建时间</th>
+                    <th>操作</th>
+                </tr>
+                {foreach $info as $k => $v}
+                <tr>
+                    <td>{$v.id}</td>
+                    <td title="{$v.title}">{if (mb_strlen($v.title,'utf-8'))>20}{mb_substr($v.title,0,20,'utf-8')}…{else}{$v.title}{/if}</td>
+                    <td>
+                        <span class="badge bg-green" style="font-size: 14px">
+                        {foreach $selectList as $kk=>$vv}
+                            {if $vv.category_id == $v.category_id}{ltrim($vv.category_name,"&nbsp;")  } {/if}
+                        {/foreach}
+                        </span>
+                    </td>
+                    <td title="{mb_substr(strip_tags($v.discript, '<p>'),0,200,'utf-8')  }">
+                        {mb_substr(strip_tags($v.discript, '<p>'),0,30,'utf-8')  }
+
+
+                    </td>
+                    <td><span class="badge bg-green">{$v.sort}</span></td>
+                    <td>{$v.createtime}</td>
+                    <td class="manager">
+                        <button class="btn btn-success btn-flat btn-sm detail" itemID="{$v.id}">详情
+                        </button>
+                        <button class="btn bg-maroon btn-flat btn-sm addItem" itemID="{$v.id}">编辑
+                        </button>
+                        <button class="btn btn-danger btn-flat btn-sm deleteItem" itemID="{$v.id}">删除
+                        </button>
+                    </td>
+                </tr>
+                {/foreach}
+                </tbody>
+            </table>
+            <div class="admin-table-page">
+                {$pagelist}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $(function () {
+
+        //保持搜索条件
+        var searArr = JSON.parse(localStorage.getItem('searArr'));
+        $.each(searArr, function (index, item) {
+            $("input[name='" + index + "'],select[name='" + index + "']").val(item);
+        });
+
+        //详情
+        $('.detail').unbind('click').click(function () {
+            var itemID = $(this).attr('itemID');
+            layer.open({
+                type: 2,
+                title: '页面详情',
+                shadeClose: true,
+                shade: 0.8,
+                area: ['64%', '90%'],
+                content: "../article/detail/id/" + itemID
+            });
+        });
+
+        //点击新增、编辑
+        $('.addItem').unbind('click').click(function () {
+            var itemID = $(this).attr('itemID');
+            if (itemID) {
+                localStorage.setItem('address', '../article/add/id/' + itemID);//子页面地址
+                $('#content').load("../article/add/id/" + itemID);
+                return false;
+            }
+            localStorage.setItem('address', '../article/add');//子页面地址
+            $('#content').load("../article/add");
+        })
+
+        //点击删除
+        $('.deleteItem').unbind('click').click(function () {
+            var itemID = $(this).attr('itemID');
+            if (itemID) {
+                var url = '../article/del';
+                var dataArr = {
+                    "id": itemID,
+                }
+                layer.confirm('您确定要删除id为' + itemID + '的数据？', {
+                    btn: ['确定', '取消'] //按钮
+                }, function () {
+                    $.ajax({
+                        url: url,
+                        type: "post",
+                        dataType: "json",
+                        data: dataArr,
+                        success: function (returnJSON) {
+                            //console.log(returnJSON);
+                            if (returnJSON.status == true) {
+                                layer.msg(returnJSON.msg, {
+                                    icon: 1,
+                                    time: 2000 //2秒关闭（如果不配置，默认是3秒）
+                                }, function () {
+                                    localStorage.setItem('address', '../article/showlist');//保存当前地址,避免刷新跳转
+                                    $('#content').load('../article/showlist');
+                                });
+                            } else {
+                                layer.msg(returnJSON.msg);
+                            }
+                        }
+                    });
+                });
+                return false;
+            }
+        })
+
+    });
+</script>

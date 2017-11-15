@@ -1,0 +1,167 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <title>更新日志</title>
+        <meta http-equiv="content-type" content="text/html;charset=utf-8">
+            <link href="{$smarty.const.ADMIN_CSS_URL}mine.css" type="text/css" rel="stylesheet">
+                <script src="{$smarty.const.ADMIN_CSS_URL}jeDate/jedate.js"></script>
+                <script src="{$smarty.const.ADMIN_JS_URL}jquery-1.8.3.min.js"></script>
+                </head>
+                <body>
+                    <div class="div_head">
+                        <span>
+                            <span style="float:left">当前位置是：服务器日志 -> 更新日志</span>
+                            <span style="float:right;margin-right: 8px;font-weight: bold">
+                                <a style="text-decoration: none" href="{$smarty.const.__MODULE__}/Server/showlist">【返回】</a>
+                            </span>
+                        </span>
+                    </div>
+                    <div></div>
+
+                    <div style="font-size: 13px;margin: 10px 5px">
+                        <input type="hidden" name="log_id" value="{$_GET['log_id']}">
+                        <form action="{$smarty.const.__SELF__}" method="post" onsubmit="return check();">
+                            <table border="1" width="100%" class="table_a">
+                                <tr>
+                                    <td width="12%" style="padding-left:30px">严重级别：</td>
+                                    <td style="padding-left:30px">
+                                        <input type="radio" name="log_level" value="1" class="log_level" {if $plog.log_level==1 || !$plog.log_level}checked="checked"{/if} />I级
+                                        <input type="radio" name="log_level" value="2" class="log_level" {if $plog.log_level==2}checked="checked"{/if} />II级
+                                        <input type="radio" name="log_level" value="3" class="log_level" {if $plog.log_level==3}checked="checked"{/if} />III级
+                                        <input type="radio" name="log_level" value="4" class="log_level" {if $plog.log_level==4}checked="checked"{/if} />IV级 
+                                               <span class="log_level_msg" style="color:red"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:30px">事件类型：</td>
+                                    <td style="padding-left:30px">                                                                 
+                                        <select name='log_type' style="width:15%" class="log_type">
+                                            <option value=''>——请选择——</option>
+                                            <option value='1' {if $plog.log_type == 1}selected="selected"{/if}>软件故障</option>
+                                            <option value='2' {if $plog.log_type == 2}selected="selected"{/if}>硬件故障</option>
+                                            <option value='3' {if $plog.log_type == 3}selected="selected"{/if}>彩打没墨</option>
+                                            <option value='4' {if $plog.log_type == 4}selected="selected"{/if}>其他故障</option>
+                                        </select>										
+                                        <span class="log_type_msg" style="color:red"></span>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding-left:30px">首次响应时间：</td>
+                                    <td style="padding-left:30px"><input type="text" name="log_first_response_time" value="{$plog.log_first_response_time}" class="datainp" id="dateinfo1" type="text" placeholder="请选择时间"  readonly style="width:15%">
+                                    <span class="log_first_response_time_msg" style="color:red"></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-left:30px">处理完成时间：</td>
+                                    <td style="padding-left:30px"><input type="text" name="log_completion_time" value="{$plog.log_completion_time}" class="datainp" id="dateinfo2" type="text" placeholder="请选择时间"  readonly style="width:15%">
+                                    <span class="log_completion_time_msg" style="color:red"></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-left:30px">处理方法及步骤：</td>
+                                    <td style="padding-left:30px">
+                                        <textarea name="log_processing_method" style="width:20%; height:100px" class="log_processing_method">{$plog.log_processing_method}</textarea>                                    
+                                        <span class="log_processing_method_msg" style="color:red"></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-left:30px">处理状态：</td>
+                                    <td style="padding-left:30px">                           
+                                        <input type="radio" name="log_result" value="1" {if $plog.log_result==1}checked{/if}/>未处理 &nbsp;&nbsp;&nbsp;&nbsp;
+                                        <!--<input type="radio" name="log_result" value="2" {if $plog.log_result==2}checked{/if}/>处理中-->
+                                        <input type="radio" name="log_result" value="3" {if $plog.log_result==3}checked{/if}/>已处理
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td style="padding-left:30px">处理人：</td>
+                                    <td style="padding-left:30px">
+                                        
+                                        <input type="checkbox" name="log_deal_user[]" value="2" class="log_deal_user" {if in_array(2,$dealUser)}checked{/if}/>黄平
+                                        <input type="checkbox" name="log_deal_user[]" value="34" class="log_deal_user" {if in_array(34,$dealUser)}checked{/if}/>林万琴
+                                        <span class="log_deal_user_msg" style="color:red"></span>
+                                    </td>
+                                </tr>
+
+                                <tr>
+                                    <td colspan="2" align="center" style="padding-left:110px">
+                                        <input type="submit" id="add" value="提交">
+                                            <input type="reset" value="重填">
+                                                </td>
+                                                </tr>  
+                                                </table>
+                                                </form>
+                                                </div>                  
+
+                                                <script type="text/javascript">
+                                                    //jeDate.skin('gray');                                                  
+                                                    jeDate({
+                                                        dateCell: "#dateinfo1",
+                                                        format: "YYYY-MM-DD hh:mm:ss",
+                                                        isinitVal: false,
+                                                        isTime: true, //isClear:false,
+                                                        minDate: "2014-09-19 00:00:00"
+                                                    })
+                                                    jeDate({
+                                                        dateCell: "#dateinfo2",
+                                                        format: "YYYY-MM-DD hh:mm:ss",
+                                                        isinitVal: false,
+                                                        isTime: true, //isClear:false,
+                                                        minDate: "2014-09-19 00:00:00"
+                                                    })
+
+                                                    function check() { 
+                                                        var log_processing_method = $(".log_processing_method").val();
+                                                        var log_type = $(".log_type option:selected").val();
+                                                        var log_first_response_time = $("#dateinfo1").val();
+                                                        var log_completion_time = $("#dateinfo2").val();
+                                                        
+                                                        //var log_deal_user = $(".log_deal_user").attr("checked");
+                                                        if (!log_type) {
+                                                            $(".log_type_msg").html("请选择事件类型");
+                                                            return false;
+                                                        } else {
+                                                            $(".log_type_msg").html("");
+                                                        }
+                                                        
+                                                        if (!log_first_response_time) {                                                            
+                                                            $(".log_first_response_time_msg").html("请选择首次响应时间");
+                                                            return false;
+                                                        } else {
+                                                            $(".log_first_response_time_msg").html("");
+                                                        }
+                                                        
+                                                        if (!log_completion_time) {                                                           
+                                                            $(".log_completion_time_msg").html("请选择处理完成时间");
+                                                            return false;
+                                                        } else {
+                                                            $(".log_completion_time_msg").html("");
+                                                        }
+                                                        
+                                                        if (!log_processing_method) {
+                                                            $(".log_processing_method_msg").html("请填写处理方法及步骤");
+                                                            return false;
+                                                        } else {
+                                                            $(".log_processing_method_msg").html("");
+                                                        }
+
+                                                        //获取复选框的值
+                                                        log_deal_user = $(".log_deal_user:checked").map(function (index, elem) {
+                                                            return $(elem).val();
+                                                        }).get().join(',');
+                                                        //判断值的存在
+                                                        if (!log_deal_user) {
+                                                            $(".log_deal_user_msg").html("请选择处理人");
+                                                            return false;
+                                                        } else {
+                                                            $(".log_deal_user_msg").html("");
+                                                        }
+                                                    }
+
+                                                </script>
+                                                </body>
+                                                </html>
+

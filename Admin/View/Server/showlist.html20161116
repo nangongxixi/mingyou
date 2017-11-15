@@ -1,0 +1,201 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+        <title>服务器日志列表</title>
+        <link href="{$smarty.const.ADMIN_CSS_URL}mine.css" type="text/css" rel="stylesheet" />
+        <script src="{$smarty.const.ADMIN_CSS_URL}jeDate/jedate.js"></script>
+        <script src="{$smarty.const.ADMIN_JS_URL}jquery-1.8.3.min.js"></script>
+    </head>
+    <body>
+        <style>
+            {literal}
+                .tr_color{background-color: #9F88FF}
+            {/literal}
+        </style>
+        <div class="div_head">
+            <span>
+                <span style="float: left;">当前位置是：服务器日志 -》日志列表</span>					
+                <span style="float: right; margin-right: 8px; font-weight: bold;">
+                    <a style="text-decoration: none;" href="{$smarty.const.__MODULE__}/Server/add">【添加日志】</a>
+                </span>
+            </span>
+        </div>
+        <div></div>
+        <div class="div_search">
+            <span>
+              <form action="{$smarty.const.__MODULE__}/Server/showlist" method="get">
+					<span style="font-weight:bold"> 响应率：<span style="color:red">{$totalTime.total_round_time}</span> ,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+					<select name='totalTime_sel' >
+						<option value='' >——请选择——</option>
+						<option value='3' {if $smarty.session.totalTime_sel == 3}selected="selected"{/if}>三天</option>
+						<option value='7' {if $smarty.session.totalTime_sel == 7}selected="selected"{/if}>一周</option>
+						<option value='30' {if $smarty.session.totalTime_sel == 30}selected="selected"{/if}>一个月</option>
+					</select>
+					
+					的正常运行率：<span style="color:red">{$totalTime.zc}</span>						
+					</span>
+					&nbsp;&nbsp;&nbsp;&nbsp;〖 说明：正常运行率 = （当前时长-服务器故障总时长）/当前时长 〗
+				  
+				  
+				  
+				  <hr style="color:#ccc;width:99.5%">
+				  
+                    项目名称：
+                    <select name='log_name' class="log_name" >
+                        <option value='' >——请选择——</option>
+                        {foreach $pinfoo as $k => $v}
+                        <option value='{$v.list_id}'>
+                            {$v.list_name}<br />                                                    
+                            {foreach $zlog as $vv}
+                            {if $v.list_id == $vv.list_pid}
+                            <option value='{$vv.list_id}' class="l" {if $vv.list_id==$smarty.session.sear.log_name[1]}selected="selected"{/if}>&nbsp;&nbsp;&nbsp;┝ {$vv.list_name}</option>
+                            {/if}                                                        
+                            {/foreach}                                                    
+                        </option>
+                        {/foreach}
+                    </select>
+                    &nbsp;&nbsp;&nbsp;处理人：
+                    <select name='deal_user'  class="log_type">
+                        <option value=''>——请选择——</option>
+                        <option value='2' {if $smarty.session.sear.log_deal_user[1] == 2}selected="selected"{/if}>黄平</option>
+                        <option value='3' {if $smarty.session.sear.log_deal_user[1] == 3}selected="selected"{/if}>吕膳兵</option>                                           
+                    </select>                    
+                    &nbsp;&nbsp;&nbsp;报告时间：
+                        <input type="text" name="log_start_time" value="{$smarty.session.sear.log_start_time}" class="datainp" id="dateinfo1" placeholder="请选择时间"  readonly >
+                      - <input type="text" name="log_end_time" value="{$smarty.session.sear.log_end_time}" class="datainp" id="dateinfo2" placeholder="请选择时间"  readonly >
+                    &nbsp;&nbsp;&nbsp;描述关键字：
+                    <input type="text" name="descript" value="{$smarty.session.sear.log_describe[1]}" size=10/>
+                        
+                    <input value="查询" type="submit" />
+                    <input value="重置" type="button" id="reset" />
+                </form>
+            </span>
+        </div>
+        <div style="font-size: 13px; margin: 10px 5px;">
+            <table class="table_a"  width="100%">
+                <tbody><tr style="font-weight: bold; background-color:#e8f2fc; color:#323232">
+                        <td style="text-align:center">编号</td>
+                        <td style="text-align:center">项目</td>
+                        <td style="text-align:center">事件报告时间</td>
+                        <td style="text-align:center">严重级别</td>
+                        <td style="text-align:center">报告人</td>
+                        <td style="text-align:center">事件类型</td>
+                        <td style="text-align:center">事件详细描述</td>
+                        <td style="text-align:center">首次响应时间</td>
+                        <td style="text-align:center">处理完成时间</td>
+                        <td style="text-align:center">处理方法及步骤</td>
+                        <td style="text-align:center">处理状态</td>
+                        <td style="text-align:center">处理人</td>
+                        <td style="text-align:center">响应率</td>
+                        {if $smarty.session.mg_role==1}
+                        <td style="text-align:center">操作</td>
+                        {/if}
+                    </tr>                   
+                    {foreach $info as $k => $v}
+                    <tr>
+                        <td style="text-align:center">{$v.log_id}</td>
+                        <td>{if {$v.list_pid}!=0}{$pinfo.{$v.list_pid}}{/if} - {$v.list_name}</td>
+                        <td style="text-align:center">{$v.log_reported_time}</td>
+                        <td style="text-align:center">                            
+                            {if $v.log_level == 1}I
+                            {elseif $v.log_level == 2}II
+                            {elseif $v.log_level == 3}III
+                            {elseif $v.log_level == 4}IV
+                            {/if}
+                        </td>
+                        <td title="{$v.mg_tel}" style="text-align:center">{$v.mg_real_name}</td>
+                        <td style="text-align:center">
+                            {if $v.log_type == 1}软件故障
+                            {elseif $v.log_type == 2}硬件故障
+                            {elseif $v.log_type == 3}彩打没墨
+                            {elseif $v.log_type == 4}其他故障
+                            {/if}
+                        </td>
+                        <td title="{$v.log_describe}">                            
+                            {if strlen($v.log_describe)>10}
+                            {mb_substr($v.log_describe,0,10,'utf-8')}…                                
+                            {else}
+                            {$v.log_describe}  
+                            {/if}                            
+                        </td>
+                        <td style="text-align:center">{$v.log_first_response_time}</td>
+                        <td style="text-align:center">{$v.log_completion_time}</td>
+                        <td title="{$v.log_processing_method}">
+                            {if strlen($v.log_processing_method)>10}
+                            {mb_substr($v.log_processing_method,0,10,'utf-8')}…                                
+                            {else}
+                            {$v.log_processing_method}  
+                            {/if}
+                        </td>
+                        <!--
+                        <td>                            
+                            {if $v.log_status == 1}<img src="{$smarty.const.ADMIN_IMG_URL}status1.png">
+                            {elseif $v.log_status == 2}<img src="{$smarty.const.ADMIN_IMG_URL}status2.png">
+                            {elseif $v.log_status == 3}<img src="{$smarty.const.ADMIN_IMG_URL}status3.png">
+                            {/if}
+                        </td>
+                        -->
+                        <td style="text-align:center">
+                           {if $v.log_result == 1}<img src="{$smarty.const.ADMIN_IMG_URL}status3.png">
+                            {elseif $v.log_result == 2}<img src="{$smarty.const.ADMIN_IMG_URL}status2.png">
+                            {elseif $v.log_result == 3}<img src="{$smarty.const.ADMIN_IMG_URL}status1.png">
+                            {/if}
+                        </td>						
+                        <td style="text-align:center">
+                            {foreach explode(",",$v.log_deal_user) as $vv}
+                            <span title="{$userInfot.$vv}">{$userInfo.$vv}</span> 
+                            {/foreach}
+                        </td>
+                        
+                        <td style="text-align:center">{$v.round_time}</td>
+                        
+                        {if $smarty.session.mg_role==1}
+                        <td style="text-align:center">
+                            <a href="{$smarty.const.__MODULE__}/Server/upd/log_id/{$v.log_id}">修改</a> | 
+                            <a class="del_log" href="{$smarty.const.__MODULE__}/Server/del/log_id/{$v.log_id}">删除</a>
+                        </td>
+                        {/if}
+                    </tr>
+                    {/foreach}
+                    <tr>
+                        <td colspan="20" style="text-align: center;">
+                            {$pagelist}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        
+        <script type="text/javascript">
+            
+            jeDate({
+                dateCell: "#dateinfo1",
+                format: "YYYY-MM-DD hh:mm:ss",
+                //isinitVal: true,
+                isTime: true, //isClear:false,
+                minDate: "2014-09-19 00:00:00"
+            })
+            jeDate({
+                dateCell: "#dateinfo2",
+                format: "YYYY-MM-DD hh:mm:ss",
+                //isinitVal: true,//默认选择当前系统时间
+                isTime: true, //isClear:false,
+                minDate: "2014-09-19 00:00:00"
+            })
+            
+            $(".del_log").click(function () {
+                if (confirm("您确认删除本条日志吗？")) {
+                } else {
+                    return false;
+                }
+            })
+            $("#reset").on("click",function(){
+                window.location.href="showlist";
+            });
+        </script>
+        
+    </body>
+</html>
+
+
