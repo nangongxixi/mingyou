@@ -1,14 +1,12 @@
 <div class="banner">
     <div class="banner-inner" style="height: 396px;">
         <ul>
-            <li style="opacity: 0.986194; width: 1583px; z-index: -1;"><img
-                    src="{$smarty.const.IMG_URL}2016072110142154.jpg">
+
+            {foreach $banner as $k=>$v}
+            <li style="opacity: 0.986194; width: 1583px; z-index: -1;">
+                <img src="/{$v.img_url}">
             </li>
-            <li style="width: 1583px; opacity: 0; z-index: -1;"><img src="{$smarty.const.IMG_URL}2016072110140540.jpg">
-            </li>
-            <li style="width: 1583px; opacity: 0.0138062; z-index: 1;"><img
-                    src="{$smarty.const.IMG_URL}2016072110134517.jpg">
-            </li>
+            {/foreach}
         </ul>
     </div>
     <div class="banner-point"><span class="cur-point"></span><span class=""></span><span class=""></span></div>
@@ -16,51 +14,33 @@
 <div class="main">
     <div class="pro-info clearfix">
         <div class="pro-video">
-            反对撒反对撒
+            {$aboutInfo[0].discript}
         </div>
         <div class="pro-text">
             <div class="news-list-top">
                 <span>工程简介</span>
             </div>
             <p style="text-indent: 2em;">
-                中国优选品牌促进发展工程是为了深入贯彻党中央、国务院和国家有关部委关于深化经济体制改革，加强中国民族品牌建设的若干文件精神，响应中国广大企业创建中国优质品牌的强烈要求，由社会各级权威媒体组织发起，并与中央电视台联合创建了《发现•品牌》栏目，整合现有政策、权威媒体、网络资源为中国优质品牌提供品牌提升和传播的一体化窗口。</p>
-            <p style="text-indent: 2em;">
-                中国优选品牌促进发展工程立足中国经济，面向世界，是宣传中国品牌、提升中国形象、推进中国经济与世界一体化、塑造中国企业形象的重要阵地和主要媒体。中国优选品牌促进发展工程在社会各界人士及单位的关心与支持下，拥有了越来越大的社会影响力，在推进中国经济可持续发展中发挥着应有的重要作用。</p>
-            <p><br></p></div>
+                {$aboutInfo[0].advantage}
+            </p></div>
     </div>
     <div class="pro-list">
+        <div class="news-list-top" style="margin-bottom: 8px">
+            <span>名优品牌</span>
+        </div>
         <ul>
+            {foreach $pinpai as $k=>$v}
             <li>
                 <a class="pro-list-video">
-                    <img src="{$smarty.const.IMG_URL}2016072110262045.jpg" alt="">
+                    <img src="/{$v.img_url}" alt="">
                     <div class="video-btm-text">
-                        <p class="video-p1">品牌建档</p>
-                        <p>China Quality Brand</p>
+                        <p class="video-p1">{$v.title}</p>
+                        <!--<p>China Quality Brand</p>-->
                     </div>
                 </a>
-                <div class="pro-list-text">通过各地采编记者实地走访并在权威平台建档，通过视频、图文的形式全方位展示企业、品牌。</div>
+                <div class="pro-list-text">{$v.discript}</div>
             </li>
-            <li>
-                <a class="pro-list-video">
-                    <img src="{$smarty.const.IMG_URL}2016072110255065.jpg" alt="">
-                    <div class="video-btm-text">
-                        <p class="video-p1">媒体公示</p>
-                        <p>China Quality Brand</p>
-                    </div>
-                </a>
-                <div class="pro-list-text">在CCTV证券资讯频道《发现·品牌》栏目进行展播，并通过网络媒体、网络电视等进行多维度展示。</div>
-            </li>
-            <li>
-                <a class="pro-list-video">
-                    <img src="{$smarty.const.IMG_URL}2016072110245572.jpg" alt="">
-                    <div class="video-btm-text">
-                        <p class="video-p1">线下活动</p>
-                        <p>China Quality Brand</p>
-                    </div>
-                </a>
-                <div class="pro-list-text">在全国各地举行大型活动，对入围中国优选品牌的企业进行现场授牌，并给予企业线下活动支持。</div>
-            </li>
-
+            {/foreach}
         </ul>
     </div>
     <div class="pro-nav"><a><img src="{$smarty.const.IMG_URL}nav01.jpg" alt=""></a></div>

@@ -1,32 +1,40 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-15 16:54:28
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 09:19:31
          compiled from "D:/phpStudy/WWW/mingyou/Home/View\Index\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:184325a0bd026bdc727-74485025%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:136375a0ce7a3520a43-07889784%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c0d718eac5390374fb87fdabde0964764a61013f' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Home/View\\Index\\index.html',
-      1 => 1510736066,
+      1 => 1510753685,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '184325a0bd026bdc727-74485025',
+  'nocache_hash' => '136375a0ce7a3520a43-07889784',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5a0bd026d575f',
+  'variables' => 
+  array (
+    'navList' => 0,
+    'v' => 0,
+  ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5a0ce7a357696',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a0bd026d575f')) {function content_5a0bd026d575f($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5a0ce7a357696')) {function content_5a0ce7a357696($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>中国优选品牌促进发展工程&nbsp;-&nbsp;官方网站</title>
-    <meta name="keywords" content="中国优选品牌，中国优选品牌促进发展工程，优选品牌，CCTV《发现品牌》栏目">
-    <meta name="description" content="中国优选品牌促进发展工程是为了深入贯彻党中央、国务院和国家有关部委关于深化经济体制改革，加强中国民族品牌建设的若干文件精神，响应中国广大企业创建中国优质品牌的强烈要求，由社会各级权威媒体组织发起，并与中央电视台联合创建了《发现•品牌》栏目，整合现有政策、权威媒体、网络资源为中国优质品牌提供品牌提升和传播的一体化窗口。
-&lt;br /&gt;&amp;ltbr /&gt;中国优选品牌促进发展工程立足中国经济，面向世界，是宣传中国品牌、提升中国形象、推进中国经济与世界一体化、塑造中国企业形象的重要阵地和主要媒体。中国优选品牌促进发展工程在社会各界人士及单位的关心与支持下，拥有了越来越大的社会影响力，在推进中国经济可持续发展中发挥着应有的重要作用。">
+    <title><?php echo @SITE_NAME;?>
+</title>
+    <meta name="keywords" content="<?php echo @SITE_KEYWORDS;?>
+">
+    <meta name="description" content="<?php echo @SITE_DESCRIPTION;?>
+">
+
     <link rel="stylesheet" href="<?php echo @CSS_URL;?>
 style.css">
     <script src="<?php echo @JS_URL;?>
@@ -45,12 +53,17 @@ share_style0_16.css">
 logo.png" alt=""></a>
     <div class="menu">
         <a href="http://www.cqbpadp.com/index.php" class="cur-menu">首页</a>
-        <a href="http://www.cqbpadp.com/news.php">新闻动态</a>
-        <a href="http://www.cqbpadp.com/about.php">关于工程</a>
-        <a href="http://www.cqbpadp.com/fxpp.php">发现品牌</a>
-        <a href="http://www.cctvfxpp.com/brand" target="_blank">优选品牌</a>
-        <a href="http://www.cqbpadp.com/search.php">查询中心</a>
-        <a href="http://www.cqbpadp.com/contact.php">联系我们</a>
+        <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['navList']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['v']->value['link'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value['category_name'];?>
+</a>
+       <?php } ?>
     </div>
 </div>
 <div id="index"></div>

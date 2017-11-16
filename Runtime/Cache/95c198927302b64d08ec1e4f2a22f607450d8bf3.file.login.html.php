@@ -1,20 +1,51 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-15 20:35:22
+         compiled from "D:/phpStudy/PHPTutorial/WWW/mingyou/Admin/View\Manager\login.html" */ ?>
+<?php /*%%SmartyHeaderCode:114175a0c339a063a28-88958738%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '95c198927302b64d08ec1e4f2a22f607450d8bf3' => 
+    array (
+      0 => 'D:/phpStudy/PHPTutorial/WWW/mingyou/Admin/View\\Manager\\login.html',
+      1 => 1510749303,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '114175a0c339a063a28-88958738',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5a0c339a1666c',
+  'variables' => 
+  array (
+    'errors' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5a0c339a1666c')) {function content_5a0c339a1666c($_smarty_tpl) {?><!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{$smarty.const.SITE_NAME}</title>
+    <title><?php echo @SITE_NAME;?>
+</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+dist/css/skins/skin-blue.min.css">
 
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -64,7 +95,8 @@
 </head>
 
 <body class="skin-blue sidebar-mini"
-      style="height: auto; min-height: 80%; background-image:url({$smarty.const.ADMIN_IMG_URL}bgpic.jpg); background-size: 100%; overflow: hidden">
+      style="height: auto; min-height: 80%; background-image:url(<?php echo @ADMIN_IMG_URL;?>
+bgpic.jpg); background-size: 100%; overflow: hidden">
 
 <DIV class="large-header" id="large-header">
     <CANVAS id="demo-canvas"></CANVAS>
@@ -81,9 +113,11 @@
             color: aliceblue;
             box-shadow: 0px 0px 20px 0px #819e99;
             ">
-        <h2>欢迎登录<span id="errors" style="font-size: 16px; color: red; font-weight: bold; display: inline-block; margin-left: 15px">{$errors}</span></h2>
+        <h2>欢迎登录<span id="errors" style="font-size: 16px; color: red; font-weight: bold; display: inline-block; margin-left: 15px"><?php echo $_smarty_tpl->tpl_vars['errors']->value;?>
+</span></h2>
         <br/>
-        <form action="{$smarty.const.__SELF__}" method="post" role="form">
+        <form action="<?php echo @__SELF__;?>
+" method="post" role="form">
             <div class="form-group">
                 <div class="input-group input-group-lg">
                     <div class="input-group-btn">
@@ -117,7 +151,8 @@
                            style="border:0px;background-color:rgba(255,255,255,0.5) !important; width:150px"
                            placeholder="请输入验证码">
                     <span style="margin-left: 15px">
-                        <img class="yanzm" src="{$smarty.const.__CONTROLLER__}/verifyImg"
+                        <img class="yanzm" src="<?php echo @__CONTROLLER__;?>
+/verifyImg"
                              onclick="this.src=this.src+'?'"/>
                     </span>
 
@@ -132,14 +167,20 @@
 
 </DIV>
 
-<SCRIPT src="{$smarty.const.STATIC_URL}dist/js/TweenLite.min.js"></SCRIPT>
-<SCRIPT src="{$smarty.const.STATIC_URL}dist/js/EasePack.min.js"></SCRIPT>
-<SCRIPT src="{$smarty.const.STATIC_URL}dist/js/demo-1.js"></SCRIPT>
-<script src="{$smarty.const.ADMIN_JS_URL}jquery-2.2.3.min.js"></script>
+<SCRIPT src="<?php echo @STATIC_URL;?>
+dist/js/TweenLite.min.js"></SCRIPT>
+<SCRIPT src="<?php echo @STATIC_URL;?>
+dist/js/EasePack.min.js"></SCRIPT>
+<SCRIPT src="<?php echo @STATIC_URL;?>
+dist/js/demo-1.js"></SCRIPT>
+<script src="<?php echo @ADMIN_JS_URL;?>
+jquery-2.2.3.min.js"></script>
 <!-- layer -->
-<script src="{$smarty.const.STATIC_URL}layer/layer.js"></script>
+<script src="<?php echo @STATIC_URL;?>
+layer/layer.js"></script>
 
 
 
 </body>
 </html>
+<?php }} ?>

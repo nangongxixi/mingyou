@@ -1,4 +1,25 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-15 20:48:47
+         compiled from "D:/phpStudy/PHPTutorial/WWW/mingyou/Admin/View\Index\index.html" */ ?>
+<?php /*%%SmartyHeaderCode:75655a0c33a45b9778-94553684%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    'f5cb2c7dcabd8343a1ba18d6cf86b364ca22e2c8' => 
+    array (
+      0 => 'D:/phpStudy/PHPTutorial/WWW/mingyou/Admin/View\\Index\\index.html',
+      1 => 1510750102,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '75655a0c33a45b9778-94553684',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5a0c33a466508',
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5a0c33a466508')) {function content_5a0c33a466508($_smarty_tpl) {?><!DOCTYPE html>
 <!--
 This is a starter template page. Use this page to start your new project from
 scratch. This page gets rid of all links and provides the needed markup only.
@@ -7,32 +28,44 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{$smarty.const.SITE_NAME}</title>
+    <title><?php echo @SITE_NAME;?>
+</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+font-awesome/css/font-awesome.min.css">
     <!-- Ionicons -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}ionicons/css/ionicons.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+ionicons/css/ionicons.min.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}dist/css/AdminLTE.min.css">
-    <link rel="stylesheet" href="{$smarty.const.STATIC_URL}dist/css/skins/skin-blue.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
+dist/css/skins/skin-blue.min.css">
 
     <!-- ./wrapper -->
-    <script src="{$smarty.const.ADMIN_JS_URL}jquery-2.2.3.min.js"></script>
+    <script src="<?php echo @ADMIN_JS_URL;?>
+jquery-2.2.3.min.js"></script>
     <!-- layer -->
-    <script src="{$smarty.const.STATIC_URL}layer/layer.js"></script>
+    <script src="<?php echo @STATIC_URL;?>
+layer/layer.js"></script>
     <!-- 日期插件 -->
-    <script src="{$smarty.const.STATIC_URL}laydate/laydate.js"></script>
+    <script src="<?php echo @STATIC_URL;?>
+laydate/laydate.js"></script>
 
     <!--表单验证 -->
-    <script src="{$smarty.const.STATIC_URL}js/Validform_v5.3.2_min.js"></script>
+    <script src="<?php echo @STATIC_URL;?>
+js/Validform_v5.3.2_min.js"></script>
 
     <!--富文本编辑器-->
-    <script src="{$smarty.const.STATIC_URL}ckeditor/ckeditor.js"></script>
-    <script src="{$smarty.const.STATIC_URL}ckeditor/samples/js/sample.js"></script>
+    <script src="<?php echo @STATIC_URL;?>
+ckeditor/ckeditor.js"></script>
+    <script src="<?php echo @STATIC_URL;?>
+ckeditor/samples/js/sample.js"></script>
 
 </head>
 
@@ -68,14 +101,16 @@ scratch. This page gets rid of all links and provides the needed markup only.
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="{$smarty.const.ADMIN_IMG_URL}defaulthead.png" class="user-image" alt="User Image">
+                            <img src="<?php echo @ADMIN_IMG_URL;?>
+defaulthead.png" class="user-image" alt="User Image">
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs rolename">管理员</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="{$smarty.const.ADMIN_IMG_URL}defaulthead.png" class="img-circle"
+                                <img src="<?php echo @ADMIN_IMG_URL;?>
+defaulthead.png" class="img-circle"
                                      alt="User Image">
                                 <p>
                                 <div style="color:rgba(255, 255, 255, 0.8)" class="rolename"></div>
@@ -86,7 +121,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <li class="user-footer">
                                 <div class="pull-right">
                                     <span id="modypwd" class="btn btn-default btn-flat">修改密码</span>
-                                    <a href="{$smarty.const.__MODULE__}/manager/logout" id="loginout" class="btn btn-default btn-flat">退出</a>
+                                    <a href="<?php echo @__MODULE__;?>
+/manager/logout" id="loginout" class="btn btn-default btn-flat">退出</a>
                                 </div>
                             </li>
                         </ul>
@@ -104,7 +140,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
             <!-- Sidebar user panel (optional) -->
             <div class="user-panel">
                 <div class="pull-left image">
-                    <img src="{$smarty.const.ADMIN_IMG_URL}defaulthead.png" class="img-circle" alt="User Image">
+                    <img src="<?php echo @ADMIN_IMG_URL;?>
+defaulthead.png" class="img-circle" alt="User Image">
                 </div>
                 <div class="pull-left info">
                     <p class="rolename">管理员</p>
@@ -148,9 +185,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
 </div>
 
 <!-- Bootstrap 3.3.6 -->
-<script src="{$smarty.const.STATIC_URL}bootstrap/js/bootstrap.min.js"></script>
+<script src="<?php echo @STATIC_URL;?>
+bootstrap/js/bootstrap.min.js"></script>
 <!-- AdminLTE App -->
-<script src="{$smarty.const.STATIC_URL}dist/js/app.min.js"></script>
+<script src="<?php echo @STATIC_URL;?>
+dist/js/app.min.js"></script>
 
 <script>
     //时间选择器
@@ -164,7 +203,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         type: 'datetime'
     });
 </script>
-{literal}
+
 <script>
     $(function () {
 
@@ -242,6 +281,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     });
 </script>
-{/literal}
+
 </body>
 </html>
+<?php }} ?>

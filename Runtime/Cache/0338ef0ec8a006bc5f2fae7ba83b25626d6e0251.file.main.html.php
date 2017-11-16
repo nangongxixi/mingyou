@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 09:19:31
-         compiled from "D:/phpStudy/WWW/mingyou/Home/View\index\main.html" */ ?>
-<?php /*%%SmartyHeaderCode:134705a0bd027bb59b1-78738801%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-15 22:21:49
+         compiled from "D:/phpStudy/PHPTutorial/WWW/mingyou/Home/View\index\main.html" */ ?>
+<?php /*%%SmartyHeaderCode:252485a0c335d76f4b1-22147132%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    '44986ee687f2b35d31c7c6e31e7bda637e154060' => 
+    '0338ef0ec8a006bc5f2fae7ba83b25626d6e0251' => 
     array (
-      0 => 'D:/phpStudy/WWW/mingyou/Home/View\\index\\main.html',
+      0 => 'D:/phpStudy/PHPTutorial/WWW/mingyou/Home/View\\index\\main.html',
       1 => 1510755706,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '134705a0bd027bb59b1-78738801',
+  'nocache_hash' => '252485a0c335d76f4b1-22147132',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5a0bd027cf5ef',
+  'unifunc' => 'content_5a0c335d81aad',
   'variables' => 
   array (
     'banner' => 0,
@@ -26,7 +26,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a0bd027cf5ef')) {function content_5a0bd027cf5ef($_smarty_tpl) {?><div class="banner">
+<?php if ($_valid && !is_callable('content_5a0c335d81aad')) {function content_5a0c335d81aad($_smarty_tpl) {?><div class="banner">
     <div class="banner-inner" style="height: 396px;">
         <ul>
 

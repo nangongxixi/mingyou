@@ -1,32 +1,76 @@
-<!DOCTYPE html>
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-15 21:48:08
+         compiled from "D:/phpStudy/PHPTutorial/WWW/mingyou/Home/View\Index\index.html" */ ?>
+<?php /*%%SmartyHeaderCode:37975a0c335c1049b8-01652540%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+$_valid = $_smarty_tpl->decodeProperties(array (
+  'file_dependency' => 
+  array (
+    '7ca19e5251c484e109479ab8f6c7bc3491d14882' => 
+    array (
+      0 => 'D:/phpStudy/PHPTutorial/WWW/mingyou/Home/View\\Index\\index.html',
+      1 => 1510753685,
+      2 => 'file',
+    ),
+  ),
+  'nocache_hash' => '37975a0c335c1049b8-01652540',
+  'function' => 
+  array (
+  ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5a0c335c1c280',
+  'variables' => 
+  array (
+    'navList' => 0,
+    'v' => 0,
+  ),
+  'has_nocache_code' => false,
+),false); /*/%%SmartyHeaderCode%%*/?>
+<?php if ($_valid && !is_callable('content_5a0c335c1c280')) {function content_5a0c335c1c280($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <title>{$smarty.const.SITE_NAME}</title>
-    <meta name="keywords" content="{$smarty.const.SITE_KEYWORDS}">
-    <meta name="description" content="{$smarty.const.SITE_DESCRIPTION}">
+    <title><?php echo @SITE_NAME;?>
+</title>
+    <meta name="keywords" content="<?php echo @SITE_KEYWORDS;?>
+">
+    <meta name="description" content="<?php echo @SITE_DESCRIPTION;?>
+">
 
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}style.css">
-    <script src="{$smarty.const.JS_URL}jquery-1.8.2.min.js"></script>
-    <script src="{$smarty.const.JS_URL}script.js"></script>
-    <script src="{$smarty.const.JS_URL}share.js"></script>
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}share_style0_16.css">
+    <link rel="stylesheet" href="<?php echo @CSS_URL;?>
+style.css">
+    <script src="<?php echo @JS_URL;?>
+jquery-1.8.2.min.js"></script>
+    <script src="<?php echo @JS_URL;?>
+script.js"></script>
+    <script src="<?php echo @JS_URL;?>
+share.js"></script>
+    <link rel="stylesheet" href="<?php echo @CSS_URL;?>
+share_style0_16.css">
 </head>
 <body>
 ﻿
 <div class="header clearfix">
-    <a href="http://www.cqbpadp.com/index.php" class="logo"><img src="{$smarty.const.IMG_URL}logo.png" alt=""></a>
+    <a href="http://www.cqbpadp.com/index.php" class="logo"><img src="<?php echo @IMG_URL;?>
+logo.png" alt=""></a>
     <div class="menu">
         <a href="http://www.cqbpadp.com/index.php" class="cur-menu">首页</a>
-        {foreach $navList as $k=>$v}
-        <a href="{$v.link}">{$v.category_name}</a>
-       {/foreach}
+        <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['navList']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+        <a href="<?php echo $_smarty_tpl->tpl_vars['v']->value['link'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value['category_name'];?>
+</a>
+       <?php } ?>
     </div>
 </div>
 <div id="index"></div>
 <div class="footer">
     <div class="footer-inner clearfix">
-        <div class="footer-left"><img src="{$smarty.const.IMG_URL}logo02.jpg" alt=""></div>
+        <div class="footer-left"><img src="<?php echo @IMG_URL;?>
+logo02.jpg" alt=""></div>
         <div class="footer-mid">
             <div class="footer-menu">
                 <a href="http://www.cqbpadp.com/index.php">首页</a>
@@ -43,7 +87,7 @@
     </div>
 </div>
 
-{literal}
+
 <script>
     $(function () {
 
@@ -124,6 +168,6 @@
 
     });
 </script>
-{/literal}
+
 </body>
-</html>
+</html><?php }} ?>
