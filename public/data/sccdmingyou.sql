@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : 商业项目
-Source Server Version : 50553
+Source Server         : localhost_3306
+Source Server Version : 50717
 Source Host           : localhost:3306
 Source Database       : sccdmingyou
 
 Target Server Type    : MYSQL
-Target Server Version : 50553
+Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-11-15 22:23:13
+Date: 2017-11-16 15:21:30
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -54,15 +54,26 @@ CREATE TABLE `yw_articles` (
   `updatetime` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   `status` tinyint(10) NOT NULL DEFAULT '0' COMMENT '是否删除（0未删除，1已删除）',
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of yw_articles
 -- ----------------------------
-INSERT INTO `yw_articles` VALUES ('1', '7', '工程简介', '', '<p><iframe frameborder=\"0\" height=\"300\" src=\"http://player.youku.com/embed/XMzE0NTA5OTM2NA==\" width=\"400\"></iframe></p>\r\n', '<p>&nbsp; &nbsp; &nbsp; &nbsp;首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介<br />\r\n&nbsp; &nbsp; &nbsp; &nbsp; 首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首简介首页工程简介首页工程简介首页工程简介首页工程简介</p>\r\n', '', '0', '0', '2017-11-15 21:07:11', '2017-11-15 21:07:11', '0');
+INSERT INTO `yw_articles` VALUES ('1', '7', '工程简介', '', '<p><iframe frameborder=\"0\" height=\"300\" src=\"http://player.youku.com/embed/XMzE0NTMxOTU4OA==\" width=\"400\"></iframe></p>\r\n', '<p>&nbsp; &nbsp; &nbsp; &nbsp;首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介<br />\r\n&nbsp; &nbsp; &nbsp; &nbsp; 首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首页工程简介首简介首页工程简介首页工程简介首页工程简介首页工程简介</p>\r\n', '', '0', '0', '2017-11-16 13:14:47', '2017-11-16 13:14:47', '0');
 INSERT INTO `yw_articles` VALUES ('2', '5', '品牌标题1', '', '<p>名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容名优品牌内容</p>\r\n', '', '', '0', '0', '2017-11-15 21:21:32', '2017-11-15 21:21:32', '0');
 INSERT INTO `yw_articles` VALUES ('3', '15', 'banner图', '', '', '', '', '0', '0', '2017-11-15 21:22:39', '2017-11-15 21:22:39', '0');
 INSERT INTO `yw_articles` VALUES ('4', '15', 'banner图', '', '', '', '', '0', '0', '2017-11-15 21:22:58', '2017-11-15 21:22:58', '0');
+INSERT INTO `yw_articles` VALUES ('5', '15', 'banner图', '', '', '', '', '0', '0', '2017-11-16 11:08:30', '2017-11-16 11:08:30', '0');
+INSERT INTO `yw_articles` VALUES ('6', '5', '品牌标题2', '', '', '', '', '0', '0', '2017-11-16 11:24:00', '2017-11-16 11:24:00', '0');
+INSERT INTO `yw_articles` VALUES ('7', '5', '品牌标题3', '', '', '', '', '0', '0', '2017-11-16 11:25:20', '2017-11-16 11:25:20', '0');
+INSERT INTO `yw_articles` VALUES ('8', '5', '品牌标题4', '', '', '', '', '0', '0', '2017-11-16 11:25:38', '2017-11-16 11:25:38', '0');
+INSERT INTO `yw_articles` VALUES ('9', '5', '品牌标题5', '', '<p>品牌标题5描述品牌标题5描述品牌标题5描述品牌标题5描述品牌标题5描述品牌标题5描述品牌标题5描述品牌标题5描述</p>\r\n', '', '', '0', '0', '2017-11-16 14:40:52', '2017-11-16 14:40:52', '0');
+INSERT INTO `yw_articles` VALUES ('10', '8', '首页中图', '', '', '', '', '0', '0', '2017-11-16 13:08:10', '2017-11-16 13:08:10', '0');
+INSERT INTO `yw_articles` VALUES ('11', '2', '新闻标题1新闻标题1新闻标题1新闻标题1新闻标题1新闻标题1新闻标题1新闻标题1', '', '<p>发达省份三大反对撒反对撒防守打法三大防守打法三大防守打法</p>\r\n', '', '', '0', '0', '2017-11-16 14:08:24', '2017-11-16 14:08:24', '0');
+INSERT INTO `yw_articles` VALUES ('12', '2', '富士达反对撒反对撒范德萨富士达范德萨富士达反对撒反对撒发撒旦', '', '<p>范德萨范德萨啊范德萨范德萨反对撒反对撒反对撒反对撒范德萨范德萨范德萨飞洒防守打法</p>\r\n', '', '', '0', '0', '2017-11-16 14:08:50', '2017-11-16 14:08:50', '0');
+INSERT INTO `yw_articles` VALUES ('13', '2', '新闻标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题标题', '', '<p>防撒旦东方舵手范德萨富士达反对撒反对撒发生大幅度撒</p>\r\n', '', '', '0', '0', '2017-11-16 14:14:52', '2017-11-16 14:14:52', '0');
+INSERT INTO `yw_articles` VALUES ('14', '9', '首页联系我们', '', '<p>首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们首页联系我们</p>\r\n', '', '', '0', '0', '2017-11-16 14:31:42', '2017-11-16 14:31:42', '0');
+INSERT INTO `yw_articles` VALUES ('15', '1', '我的合作伙伴', '', '<p><img alt=\"\" src=\"http://www.mingyou.com/public/upload/2017-11-16/5a0d3a1f2ef53.png\" style=\"height:100px; width:214px\" />&nbsp; &nbsp;&nbsp;<img alt=\"\" src=\"http://www.mingyou.com/public/upload/2017-11-16/5a0d3a1f2ef53.png\" style=\"height:100px; width:214px\" />&nbsp; &nbsp;&nbsp;<img alt=\"\" src=\"http://www.mingyou.com/public/upload/2017-11-16/5a0d3a1f2ef53.png\" style=\"height:100px; width:214px\" />&nbsp; &nbsp;&nbsp;<img alt=\"\" src=\"http://www.mingyou.com/public/upload/2017-11-16/5a0d3a1f2ef53.png\" style=\"height:100px; width:214px\" />&nbsp; &nbsp;&nbsp;<img alt=\"\" src=\"http://www.mingyou.com/public/upload/2017-11-16/5a0d3a1f2ef53.png\" style=\"height:100px; width:214px\" /></p>\r\n', '', '', '0', '0', '2017-11-16 15:11:56', '2017-11-16 15:11:56', '0');
 
 -- ----------------------------
 -- Table structure for `yw_articles_category`
@@ -85,7 +96,7 @@ CREATE TABLE `yw_articles_category` (
 -- ----------------------------
 -- Records of yw_articles_category
 -- ----------------------------
-INSERT INTO `yw_articles_category` VALUES ('1', '我的合作伙伴', '0', '1', '0', '0', '0', '2017-11-15 13:56:52', '2017-11-15 13:56:52', '0');
+INSERT INTO `yw_articles_category` VALUES ('1', '我的合作伙伴', '6', '6-1', '1', '0', '0', '2017-11-16 15:11:00', '2017-11-16 15:11:00', '0');
 INSERT INTO `yw_articles_category` VALUES ('2', '新闻动态', '0', '2', '0', '1', '8', '2017-11-15 14:13:52', '2017-11-15 21:30:55', '0');
 INSERT INTO `yw_articles_category` VALUES ('3', '首页切换', '0', '3', '0', '0', '0', '2017-11-15 13:57:47', '2017-11-15 13:57:47', '0');
 INSERT INTO `yw_articles_category` VALUES ('4', '品牌展播', '0', '4', '0', '0', '0', '2017-11-15 13:58:06', '2017-11-15 13:58:06', '0');
@@ -161,7 +172,7 @@ CREATE TABLE `yw_images` (
   `createtime` datetime NOT NULL DEFAULT '0000-00-00 00:00:00',
   `updatetime` timestamp NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8mb4;
 
 -- ----------------------------
 -- Records of yw_images
@@ -169,6 +180,13 @@ CREATE TABLE `yw_images` (
 INSERT INTO `yw_images` VALUES ('1', '2', 'public/upload/171115210941.png', '', '0', '0', '0', '0', '2017-11-15 21:21:26', '2017-11-15 21:21:32');
 INSERT INTO `yw_images` VALUES ('2', '3', 'public/upload/2016072110140540.jpg', '', '0', '0', '0', '0', '2017-11-15 21:22:34', '2017-11-15 21:22:39');
 INSERT INTO `yw_images` VALUES ('3', '4', 'public/upload/2016072110142154.jpg', '', '0', '0', '0', '0', '2017-11-15 21:22:54', '2017-11-15 21:22:58');
+INSERT INTO `yw_images` VALUES ('4', '5', 'public/upload/20150612025112329.jpg', '', '0', '0', '0', '0', '2017-11-16 11:08:27', '2017-11-16 11:08:30');
+INSERT INTO `yw_images` VALUES ('5', '6', 'public/upload/20150608031813393.jpg', '', '0', '0', '0', '0', '2017-11-16 11:23:50', '2017-11-16 11:24:00');
+INSERT INTO `yw_images` VALUES ('6', '7', 'public/upload/20150608031829822.jpg', '', '0', '0', '0', '0', '2017-11-16 11:25:17', '2017-11-16 11:25:20');
+INSERT INTO `yw_images` VALUES ('7', '8', 'public/upload/20150608031723113.jpg', '', '0', '0', '0', '0', '2017-11-16 11:25:36', '2017-11-16 11:25:38');
+INSERT INTO `yw_images` VALUES ('8', '9', 'public/upload/171116112630.png', '', '0', '0', '0', '0', '2017-11-16 11:27:03', '2017-11-16 11:27:05');
+INSERT INTO `yw_images` VALUES ('9', '10', 'public/upload/nav01.jpg', '', '0', '0', '0', '0', '2017-11-16 13:08:03', '2017-11-16 13:08:10');
+INSERT INTO `yw_images` VALUES ('10', '14', 'public/upload/171116142621.png', '', '0', '0', '0', '0', '2017-11-16 14:31:39', '2017-11-16 14:31:42');
 
 -- ----------------------------
 -- Table structure for `yw_log`

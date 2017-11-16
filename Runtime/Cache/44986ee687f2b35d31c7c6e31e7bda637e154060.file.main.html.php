@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 09:19:31
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 15:13:30
          compiled from "D:/phpStudy/WWW/mingyou/Home/View\index\main.html" */ ?>
 <?php /*%%SmartyHeaderCode:134705a0bd027bb59b1-78738801%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44986ee687f2b35d31c7c6e31e7bda637e154060' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Home/View\\index\\main.html',
-      1 => 1510755706,
+      1 => 1510816405,
       2 => 'file',
     ),
   ),
@@ -23,13 +23,35 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'v' => 0,
     'aboutInfo' => 0,
     'pinpai' => 0,
+    'kk' => 0,
+    'vv' => 0,
+    'middleInfo' => 0,
+    'news' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a0bd027cf5ef')) {function content_5a0bd027cf5ef($_smarty_tpl) {?><div class="banner">
-    <div class="banner-inner" style="height: 396px;">
-        <ul>
+<?php if ($_valid && !is_callable('content_5a0bd027cf5ef')) {function content_5a0bd027cf5ef($_smarty_tpl) {?><!-- 新闻图切换 -->
+<link href="<?php echo @CSS_URL;?>
+jquery.slideBox.css" rel="stylesheet" type="text/css">
 
+<script src="<?php echo @JS_URL;?>
+jquery.slideBox.min.js" type="text/javascript"></script>
+<script>
+    jQuery(function ($) {
+        $('#demo1').slideBox({
+            duration: 0.3,//滚动持续时间，单位：秒
+            delay: 7,//滚动延迟时间，单位：秒
+            startIndex: 1//初始焦点顺序
+        });
+    });
+</script>
+
+
+
+<!--banner开始-->
+<div class="fullSlide">
+    <div class="bd">
+        <ul>
             <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
  $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['banner']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -37,15 +59,48 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v
 $_smarty_tpl->tpl_vars['v']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
 ?>
-            <li style="opacity: 0.986194; width: 1583px; z-index: -1;">
-                <img src="/<?php echo $_smarty_tpl->tpl_vars['v']->value['img_url'];?>
-">
+            <li _src="/<?php echo $_smarty_tpl->tpl_vars['v']->value['img_url'];?>
+" style="background:url(/<?php echo $_smarty_tpl->tpl_vars['v']->value['img_url'];?>
+) center 0 no-repeat;">
+                <a target="_blank" href="javascript:;"></a>
             </li>
             <?php } ?>
         </ul>
     </div>
-    <div class="banner-point"><span class="cur-point"></span><span class=""></span><span class=""></span></div>
+
+    <div class="hd">
+        <ul></ul>
+    </div>
+    <!--
+    <span class="prev"></span>
+    <span class="next"></span>
+    -->
 </div>
+
+<script type="text/javascript">
+
+    /* 控制左右按钮显示 */
+    jQuery(".fullSlide").hover(function () {
+        jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+    }, function () {
+        jQuery(this).find(".prev,.next").fadeOut()
+    });
+
+    /* 调用SuperSlide */
+    jQuery(".fullSlide").slide({
+        titCell: ".hd ul", mainCell: ".bd ul", effect: "fold", autoPlay: true, autoPage: true, trigger: "click",
+        startFun: function (i) {
+            var curLi = jQuery(".fullSlide .bd li").eq(i);
+            /* 当前大图的li */
+            if (!!curLi.attr("_src")) {
+                curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+                /* 将_src地址赋予li背景，然后删除_src */
+            }
+        }
+    });
+</script>
+<!--banner结束-->
+
 <div class="main">
     <div class="pro-info clearfix">
         <div class="pro-video">
@@ -61,6 +116,116 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 
             </p></div>
     </div>
+
+    <div class="mian_bottom">
+        <div class="news-list-top" style="margin-bottom: 8px">
+            <span>名优品牌</span>
+        </div>
+        <div class="case">
+            <div class="case_list">
+                <div class="picScroll">
+                    <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['pinpai']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+                            <ul>
+                                <?php  $_smarty_tpl->tpl_vars['vv'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['vv']->_loop = false;
+ $_smarty_tpl->tpl_vars['kk'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['v']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['vv']->key => $_smarty_tpl->tpl_vars['vv']->value){
+$_smarty_tpl->tpl_vars['vv']->_loop = true;
+ $_smarty_tpl->tpl_vars['kk']->value = $_smarty_tpl->tpl_vars['vv']->key;
+?>
+                                <li class="<?php if ($_smarty_tpl->tpl_vars['kk']->value%2==0){?>mr_0<?php }?>">
+                                    <div class="case_img">
+                                        <a href="" title=""><img src="/<?php echo $_smarty_tpl->tpl_vars['vv']->value['img_url'];?>
+" alt="<?php echo $_smarty_tpl->tpl_vars['vv']->value['title'];?>
+"/></a>
+                                    </div>
+                                    <div class="case_tt"><a href="" title="/<?php echo $_smarty_tpl->tpl_vars['vv']->value['img_url'];?>
+"><?php echo $_smarty_tpl->tpl_vars['vv']->value['title'];?>
+</a></div>
+                                </li>
+                                <?php } ?>
+                            </ul>
+                    <?php } ?>
+                    <a class="prev" href="javascript:void(0)"></a>
+                    <a class="next" href="javascript:void(0)"></a>
+                </div>
+                <script type="text/javascript">
+                    $(".picScroll").slide({
+                        mainCell: "ul",
+                        effect: "leftMarquee",
+                        vis: 5,
+                        autoPlay: true,
+                        interTime: 50,
+                        switchLoad: "_src"
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro-nav"><a><img src="<?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[0]['img_url'];?>
+" alt="" style="margin-top: 30px"></a></div>
+
+    <div class="pro-btm clearfix">
+        <div class="pro-left">
+            <div class="clearfix">
+                <!-- 联系我们 -->
+                <div class="pro-right" style="float: left">
+                    <h5 class="pro-right-title">联系我们</h5>
+                    <ul>
+                        <li class="clearfix" style="background: rgb(227, 226, 226);">
+                            <img src="<?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[1]['img_url'];?>
+" alt="" style="width: 350px">
+                            <div><?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[1]['discript'];?>
+</div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 新闻列表 -->
+                <div class="news-list" style="float: left; margin-left: 25px">
+                    <div class="news-list-top">
+                        <a href="#">更多&gt;&gt;</a>
+                        <span>新闻动态</span>
+                    </div>
+                    <ul>
+                        <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['news']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+                        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+</a></li>
+                        <?php } ?>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 新闻切换 -->
+        <div id="demo1" class="slideBox" style="width: 380px; height: 250px; overflow: hidden; float: right">
+            <ul class="items">
+                <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['banner']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+                <li class="" style="width: 380px; height: 250px;"><a href="http://www.jsdaima.com/" title="这里是测试标题一"><img
+                        src="/<?php echo $_smarty_tpl->tpl_vars['v']->value['img_url'];?>
+"></a></li>
+                <?php } ?>
+            </ul>
+        </div>
+    </div>
+
     <div class="pro-list">
         <div class="news-list-top" style="margin-bottom: 8px">
             <span>名优品牌</span>
@@ -68,7 +233,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
         <ul>
             <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
  $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
- $_from = $_smarty_tpl->tpl_vars['pinpai']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->tpl_vars['pinpai']->value[0]; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
 $_smarty_tpl->tpl_vars['v']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
@@ -89,116 +254,15 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
             <?php } ?>
         </ul>
     </div>
-    <div class="pro-nav"><a><img src="<?php echo @IMG_URL;?>
-nav01.jpg" alt=""></a></div>
-    <div class="pro-btm clearfix">
-        <div class="pro-left">
-            <div class="clearfix">
-                <div class="news-banner">
-                    <div class="news-banner-inner">
-                        <ul>
-                            <li style="opacity: 0.0138062; z-index: 1;">
-                                <a href="http://www.cqbpadp.com/news_detail.php?id=23"><img
-                                        src="<?php echo @IMG_URL;?>
-2016091314080341.jpg" alt=""></a>
-                                <p>央视正式启动“国家品牌计划”</p>
-                            </li>
 
-                            <li style="opacity: 0.986194; z-index: -1;">
-                                <a href="http://www.cqbpadp.com/news_detail.php?id=2"><img
-                                        src="<?php echo @IMG_URL;?>
-2016080718432741.jpg" alt=""></a>
-                                <p>“中国优选品牌促进发展工程”在京启动</p>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="news-banner-point"><span class=""></span><span class="cur-news-point"></span></div>
-                </div>
-                <div class="news-list">
-                    <div class="news-list-top">
-                        <a href="http://www.cqbpadp.com/news.php">更多&gt;&gt;</a>
-                        <span>新闻动态</span>
-                    </div>
-                    <ul>
-                        <li><a href="http://www.cqbpadp.com/news_detail.php?id=23">央视正式启动“国家品牌计划”</a></li>
-                        <li><a href="http://www.cqbpadp.com/news_detail.php?id=2">“中国优选品牌促进发展工程”在京启动</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="my-partner">
-                <div class="news-list-top">
-                    <span>我的合作伙伴</span>
-                </div>
-                <ul>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080715521576.jpg"></li>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080715541276.jpg"></li>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080715065659.jpg"></li>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080715304475.jpg"></li>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080715480830.jpg"></li>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080714335369.jpg"></li>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080715315269.jpg"></li>
-                    <li><img src="<?php echo @IMG_URL;?>
-2016080715123261.jpg"></li>
-                </ul>
-            </div>
+    <div class="mian_bottom" style="margin-bottom: 40px">
+        <div class="news-list-top" style="margin-bottom: 8px">
+            <span>我的合作伙伴</span>
         </div>
-        <div class="pro-right">
-            <h5 class="pro-right-title">品牌专家</h5>
-            <ul>
-                <li class="clearfix" style="background: rgb(227, 226, 226);">
-                    <a class="per-head"><img src="<?php echo @IMG_URL;?>
-2016072210103066.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">陈富国</a>
-                        <p>最佳中国品牌价值排行榜的设计者</p>
-                        <p>北京师范大学心理学博士学位</p>
-                        <p>获得中欧国际商学院EMBA学位</p></div>
-                </li>
-                <li class="clearfix">
-                    <a class="per-head"><img src="<?php echo @IMG_URL;?>
-2016080714115926.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">曹越</a>
-                        <p>山东大学品牌经济研究中心副主任</p>
-                        <p>《BCSOK：品牌建设体系》</p>
-                        <p>致力于品牌型组织的研究与推广</p></div>
-                </li>
-                <li class="clearfix" style="background: rgb(227, 226, 226);">
-                    <a class="per-head"><img src="<?php echo @IMG_URL;?>
-2016080714192949.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">洪海江</a>
-                        <p>《颠覆式融合：全网品牌营销革命》</p>
-                        <p>《基于新媒体互动式广告的相关探索》</p>
-                        <p>南京师范大学现代广告品牌研究中心主任</p></div>
-                </li>
-                <li class="clearfix">
-                    <a class="per-head"><img src="<?php echo @IMG_URL;?>
-2016080714141277.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">孙丰国</a>
-                        <p>湘潭大学文学与新闻学院广告学系副教授</p>
-                        <p>《品牌研究》研究生课程</p>
-                        <p>《广告促动经济发展》，《广告研究》</p></div>
-                </li>
-                <li class="clearfix" style="background: rgb(227, 226, 226);">
-                    <a class="per-head"><img src="<?php echo @IMG_URL;?>
-2016080714163456.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">许屹松</a>
-                        <p>北京大学CBO（首席品牌官）</p>
-                        <p>中国品牌领袖联盟（CBLC）副秘书长</p>
-                        <p>BAC国际品牌认定委员会中国区副秘书长</p></div>
-                </li>
-            </ul>
-        </div>
+        <div><?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[2]['discript'];?>
+</div>
     </div>
+
+
+
 </div><?php }} ?>

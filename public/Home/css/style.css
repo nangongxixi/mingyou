@@ -18,7 +18,7 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 
 .header{ padding:20px 0; width:1200px; margin:0 auto;}
 .logo{ float:left;}
-.logo img{ width:350px;}
+
 .menu{ float:right; padding-top:20px;}
 .menu a{ display:inline-block; padding:0 10px 10px; margin-left:15px; font-size:16px; color:#383635;}
 .menu .cur-menu{ padding-bottom:6px; border-bottom:4px solid #ac1425;}
@@ -35,9 +35,9 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 .pro-video{ float:left; width:400px;}
 .pro-text{ float:right; width:780px;}
 .pro-text p{ font-size:13px; color:#333; line-height:24px; margin-top:30px;}
-.pro-list{ margin-top:40px; height:300px; overflow:hidden;}
+.pro-list{ margin-top:40px; overflow:hidden}
 .pro-list ul{ width:120%;}
-.pro-list li{ float:left; width:380px; margin-right:30px; overflow:hidden;}
+.pro-list li{ float:left; width:380px; margin-right:30px; overflow:hidden; margin-bottom: 40px}
 .pro-list-video{ display:block; width:380px; height:220px; position:relative; overflow:hidden;}
 .pro-list-video img{ width:100%;
 	transition:all .3s ease-in-out;
@@ -67,7 +67,7 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 .video-btm-text .video-p1{ font-size:15px;}
 .pro-list-text{ font-size:13px; line-height:22px; color:#333333; height:65px; background:url(../img/bg01.jpg) repeat-x; padding:15px 15px 0; overflow:hidden;}
 .pro-nav{ margin-top:40px;}
-.pro-btm{ margin-top:40px; padding-bottom:50px;}
+.pro-btm{ margin-top:40px}
 .pro-left{ float:left; width:800px;}
 .news-banner{ float:left; width:400px;}
 .news-banner-inner{ position:relative; height:265px;}
@@ -215,7 +215,7 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 .hide{ cursor:pointer;}
 .pop-text{ height:32px; line-height:32px; color:#fff; font-size:12px; background-color:#ac1425; margin-top:10px; border-radius:3px; overflow:hidden;}
 .pop-video{ display:block; width:180px; height:80px; background-color:#000; position:relative; margin-top:10px;}
-.on{ position:absolute; top:50%; left:78px; top:28px; z-index:105;}
+
 .code-img{ margin-top:10px;}
 .code-text{ font-size:12px; color:#ac1425; margin-top:5px;}
 
@@ -245,7 +245,7 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
     background-color: red;
     color: #fff;
     top: -12px;}
-    
+
 .search_case{width: 60%;margin: 0px auto;padding-top:137px;font-size: 10px;text-align: left;margin-top: 60px;position: relative;}
 .search_case p{font-size: 14px;color: #000;line-height: 110%;margin-bottom: 19px;}
 .search_case .cae_pp1{text-align: left;height: 14px;overflow: hidden;}
@@ -265,6 +265,12 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 .footer-inner .bdshare-button-style0-16 .bds_tsina:hover{background: url(../img/link01.png) 0px -45px no-repeat !important;}
 .footer-inner .bdshare-button-style0-16 .bds_sqq{background: url(../img/link03.png) no-repeat !important;}
 .footer-inner .bdshare-button-style0-16 .bds_sqq:hover{background: url(../img/link03.png) 0px -45px no-repeat !important;}
+.footer_log{-webkit-filter: grayscale(100%);-moz-filter: grayscale(100%);-ms-filter: grayscale(100%);-o-filter: grayscale(100%);
+	filter: grayscale(100%);filter: gray;
+	width: 350px;
+	position: relative;
+	top: -15px;
+}
 
 .abo_le ul{width: 177px;padding-top: 60px;padding-top: 60px;text-align: center;}
 .abo_le ul li{width: 161px;margin:0px auto;text-align: center;background: #a30902;padding-bottom: 5px;  }
@@ -303,8 +309,8 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 .news_ri .newsuu .newsll span{float: right;margin-top: -30px;}
 
 .news_detail{width: 952px;margin: 0px auto;}
-.news_detail .news_detail_top{text-align: center;margin-bottom: 40px;} 
-.news_detail .news_detail_top h5{font-size: 20px;border-bottom: 1px solid #DCDCDC;padding: 6px 0px;margin-bottom: 6px; } 
+.news_detail .news_detail_top{text-align: center;margin-bottom: 40px;}
+.news_detail .news_detail_top h5{font-size: 20px;border-bottom: 1px solid #DCDCDC;padding: 6px 0px;margin-bottom: 6px; }
 /*.news_detail_conient img{float: left;}*/
 
 .red_jiu_ri{width: 952px;margin-top: 10px;margin-bottom: 50px;}
@@ -317,8 +323,8 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 .faxianrigou {position: absolute;right: 0px;bottom: 0px;}
 .red_jiu_ri .jiuu .jiul:hover a,.red_jiu_ri .jiuu .jiul:hover h5,.red_jiu_ri .jiuu .jiul:hover p{color: #a30902}
 
-.news_detail .red_detail_top{text-align: center;margin-bottom: 40px;} 
-.news_detail .red_detail_top h5{font-size: 20px;padding: 6px 0px;margin-bottom: 6px;color: #a30902; } 
+.news_detail .red_detail_top{text-align: center;margin-bottom: 40px;}
+.news_detail .red_detail_top h5{font-size: 20px;padding: 6px 0px;margin-bottom: 6px;color: #a30902; }
 .news_detail .red_detail_content{color: #161616;line-height: 35px;font-size: 15px;}
 .news_detail .red_detail_content a{color: red;line-height: 35px;font-size: 16px;text-decoration:blink;}
 .inquiry_honor_FP{display: block;position: absolute;right: 73px;top: 34px;color: #c0060e;}
@@ -364,10 +370,10 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
 
 @media only screen and (min-width:769px) and (max-width: 1023px) {
 .logo1 {left: 214px;}
-.logo2 {left: 400px;}    
+.logo2 {left: 400px;}
 .logo3 {left: 435px;top: 24%;}
 .logo4 {left: 449px;top: 18%;}
-.logo5 {left: 124px;}   
+.logo5 {left: 124px;}
 .in_ab_zz {width: 47%;top: 292px;left: 24%;font-size: 20px;}
 .index3_logo {margin-top: 450%;}
 .gengduo {left: 32%;}
@@ -407,3 +413,50 @@ button,input[type=file]{ text-align:center; font-family:'微软雅黑'; cursor:p
     position: relative;
 }
 }
+
+/*banner*/
+.fullSlide{ width:100%;  position:relative;  height:403px; background:#fff;  }
+.fullSlide .bd{ margin:0 auto; position:relative; z-index:0; overflow:hidden;  }
+.fullSlide .bd ul{ width:100% !important;  }
+.fullSlide .bd li{ width:100% !important;  height:403px; overflow:hidden; text-align:center;  }
+.fullSlide .bd li a{ display:block; height:403px; }
+
+.fullSlide .hd{ width:100%;  position:absolute; z-index:1; bottom:0; left:0; height:30px; line-height:30px; }
+.fullSlide .hd ul{ text-align:center; }
+.fullSlide .hd ul li{ cursor:pointer; display:inline-block; *display:inline; zoom:1; width:42px; height:11px; margin:1px; overflow:hidden; background:#000;
+	filter:alpha(opacity=50);opacity:0.5;  line-height:999px;
+}
+.fullSlide .hd ul .on{ background:#f00;  }
+
+.fullSlide .prev,
+.fullSlide .next{  display:block;  position:absolute; z-index:1; top:50%; margin-top:-30px; left:15%;  z-index:1; width:40px; height:60px; background:url(../images/slider-arrow.png) -126px -137px #000 no-repeat;  cursor:pointer; filter:alpha(opacity=50);opacity:0.5; display:none;  }
+.fullSlide .next{ left:auto; right:15%; background-position:-6px -137px; }
+
+
+.mian_bottom{width:1200px; margin:0 auto;}
+/*案例*/
+.case{ width:1200px; float:left; padding-top:10px;}
+.case_title{ width:1185px; height:39px; background:url(../images/jd.jpg) no-repeat; float:left; font-size:15px; font-family:"微软雅黑"; color:#288005; line-height:39px; padding-left:15px;}
+.case_list{ width:1200px; margin:0 auto; float:left}
+
+.picScroll{ margin:0px auto;  width:1200px;  overflow:hidden;     }
+.picScroll .prev,
+.picScroll .next{ display:block; position:absolute; top:86px; left:5px; width:23px; height:23px; background:url(images/btns.png) no-repeat;   }
+.picScroll .next{ left:auto; right:5px; background-position:-25px 0; }
+.picScroll .prev:hover{ background-position:0 -30px; }
+.picScroll .next:hover{ background-position:-25px -30px; }
+.picScroll ul{ overflow:hidden; zoom:1;  }
+.tempWrap {width:1200px !important;}
+.picScroll ul li { width:220px; float:left; overflow:hidden; padding:0 5px;    }
+.picScroll ul li.case_img{ border:1px solid #ccc; background-color:#FFFFFF; -moz-box-shadow: 2px 2px 2px #cecece;
+    -webkit-box-shadow: 2px 2px 2px #cecece;
+    box-shadow: 2px 2px 2px #cecece;
+    /* For IE 8 */
+    -ms-filter: "progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000')";
+    /* For IE 5.5 - 7 */
+    filter: progid:DXImageTransform.Microsoft.Shadow(Strength=4, Direction=135, Color='#000000'); }
+.picScroll ul li .case_img img{ width:217px; height:145px; display:block; text-align:center;padding:2px; border:1px solid #ccc;  }
+.picScroll ul li .case_tt a{ color:#6c6c6c; height:25px; text-align:center }
+.picScroll ul li .case_tt a:hover{ color:#FF0000; }
+
+.case_tt{ line-height:30px; height:30px; text-align:center;    }

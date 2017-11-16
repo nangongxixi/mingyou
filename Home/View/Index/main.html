@@ -1,16 +1,64 @@
-<div class="banner">
-    <div class="banner-inner" style="height: 396px;">
-        <ul>
+<!-- 新闻图切换 -->
+<link href="{$smarty.const.CSS_URL}jquery.slideBox.css" rel="stylesheet" type="text/css">
 
+<script src="{$smarty.const.JS_URL}jquery.slideBox.min.js" type="text/javascript"></script>
+<script>
+    jQuery(function ($) {
+        $('#demo1').slideBox({
+            duration: 0.3,//滚动持续时间，单位：秒
+            delay: 7,//滚动延迟时间，单位：秒
+            startIndex: 1//初始焦点顺序
+        });
+    });
+</script>
+
+
+
+<!--banner开始-->
+<div class="fullSlide">
+    <div class="bd">
+        <ul>
             {foreach $banner as $k=>$v}
-            <li style="opacity: 0.986194; width: 1583px; z-index: -1;">
-                <img src="/{$v.img_url}">
+            <li _src="/{$v.img_url}" style="background:url(/{$v.img_url}) center 0 no-repeat;">
+                <a target="_blank" href="javascript:;"></a>
             </li>
             {/foreach}
         </ul>
     </div>
-    <div class="banner-point"><span class="cur-point"></span><span class=""></span><span class=""></span></div>
+
+    <div class="hd">
+        <ul></ul>
+    </div>
+    <!--
+    <span class="prev"></span>
+    <span class="next"></span>
+    -->
 </div>
+
+<script type="text/javascript">
+
+    /* 控制左右按钮显示 */
+    jQuery(".fullSlide").hover(function () {
+        jQuery(this).find(".prev,.next").stop(true, true).fadeTo("show", 0.5)
+    }, function () {
+        jQuery(this).find(".prev,.next").fadeOut()
+    });
+
+    /* 调用SuperSlide */
+    jQuery(".fullSlide").slide({
+        titCell: ".hd ul", mainCell: ".bd ul", effect: "fold", autoPlay: true, autoPage: true, trigger: "click",
+        startFun: function (i) {
+            var curLi = jQuery(".fullSlide .bd li").eq(i);
+            /* 当前大图的li */
+            if (!!curLi.attr("_src")) {
+                curLi.css("background-image", curLi.attr("_src")).removeAttr("_src")
+                /* 将_src地址赋予li背景，然后删除_src */
+            }
+        }
+    });
+</script>
+<!--banner结束-->
+
 <div class="main">
     <div class="pro-info clearfix">
         <div class="pro-video">
@@ -24,12 +72,89 @@
                 {$aboutInfo[0].advantage}
             </p></div>
     </div>
+
+    <div class="mian_bottom">
+        <div class="news-list-top" style="margin-bottom: 8px">
+            <span>名优品牌</span>
+        </div>
+        <div class="case">
+            <div class="case_list">
+                <div class="picScroll">
+                    {foreach $pinpai as $k=>$v}
+                            <ul>
+                                {foreach $v as $kk=>$vv}
+                                <li class="{if $kk%2==0}mr_0{/if}">
+                                    <div class="case_img">
+                                        <a href="" title=""><img src="/{$vv.img_url}" alt="{$vv.title}"/></a>
+                                    </div>
+                                    <div class="case_tt"><a href="" title="/{$vv.img_url}">{$vv.title}</a></div>
+                                </li>
+                                {/foreach}
+                            </ul>
+                    {/foreach}
+                    <a class="prev" href="javascript:void(0)"></a>
+                    <a class="next" href="javascript:void(0)"></a>
+                </div>
+                <script type="text/javascript">
+                    $(".picScroll").slide({
+                        mainCell: "ul",
+                        effect: "leftMarquee",
+                        vis: 5,
+                        autoPlay: true,
+                        interTime: 50,
+                        switchLoad: "_src"
+                    });
+                </script>
+            </div>
+        </div>
+    </div>
+
+    <div class="pro-nav"><a><img src="{$middleInfo[0].img_url}" alt="" style="margin-top: 30px"></a></div>
+
+    <div class="pro-btm clearfix">
+        <div class="pro-left">
+            <div class="clearfix">
+                <!-- 联系我们 -->
+                <div class="pro-right" style="float: left">
+                    <h5 class="pro-right-title">联系我们</h5>
+                    <ul>
+                        <li class="clearfix" style="background: rgb(227, 226, 226);">
+                            <img src="{$middleInfo[1].img_url}" alt="" style="width: 350px">
+                            <div>{$middleInfo[1].discript}</div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- 新闻列表 -->
+                <div class="news-list" style="float: left; margin-left: 25px">
+                    <div class="news-list-top">
+                        <a href="#">更多&gt;&gt;</a>
+                        <span>新闻动态</span>
+                    </div>
+                    <ul>
+                        {foreach $news as $k=>$v}
+                        <li><a href="#">{$v.title}</a></li>
+                        {/foreach}
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- 新闻切换 -->
+        <div id="demo1" class="slideBox" style="width: 380px; height: 250px; overflow: hidden; float: right">
+            <ul class="items">
+                {foreach $banner as $k=>$v}
+                <li class="" style="width: 380px; height: 250px;"><a href="http://www.jsdaima.com/" title="这里是测试标题一"><img
+                        src="/{$v.img_url}"></a></li>
+                {/foreach}
+            </ul>
+        </div>
+    </div>
+
     <div class="pro-list">
         <div class="news-list-top" style="margin-bottom: 8px">
             <span>名优品牌</span>
         </div>
         <ul>
-            {foreach $pinpai as $k=>$v}
+            {foreach $pinpai[0] as $k=>$v}
             <li>
                 <a class="pro-list-video">
                     <img src="/{$v.img_url}" alt="">
@@ -43,100 +168,14 @@
             {/foreach}
         </ul>
     </div>
-    <div class="pro-nav"><a><img src="{$smarty.const.IMG_URL}nav01.jpg" alt=""></a></div>
-    <div class="pro-btm clearfix">
-        <div class="pro-left">
-            <div class="clearfix">
-                <div class="news-banner">
-                    <div class="news-banner-inner">
-                        <ul>
-                            <li style="opacity: 0.0138062; z-index: 1;">
-                                <a href="http://www.cqbpadp.com/news_detail.php?id=23"><img
-                                        src="{$smarty.const.IMG_URL}2016091314080341.jpg" alt=""></a>
-                                <p>央视正式启动“国家品牌计划”</p>
-                            </li>
 
-                            <li style="opacity: 0.986194; z-index: -1;">
-                                <a href="http://www.cqbpadp.com/news_detail.php?id=2"><img
-                                        src="{$smarty.const.IMG_URL}2016080718432741.jpg" alt=""></a>
-                                <p>“中国优选品牌促进发展工程”在京启动</p>
-                            </li>
-
-                        </ul>
-                    </div>
-                    <div class="news-banner-point"><span class=""></span><span class="cur-news-point"></span></div>
-                </div>
-                <div class="news-list">
-                    <div class="news-list-top">
-                        <a href="http://www.cqbpadp.com/news.php">更多&gt;&gt;</a>
-                        <span>新闻动态</span>
-                    </div>
-                    <ul>
-                        <li><a href="http://www.cqbpadp.com/news_detail.php?id=23">央视正式启动“国家品牌计划”</a></li>
-                        <li><a href="http://www.cqbpadp.com/news_detail.php?id=2">“中国优选品牌促进发展工程”在京启动</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="my-partner">
-                <div class="news-list-top">
-                    <span>我的合作伙伴</span>
-                </div>
-                <ul>
-                    <li><img src="{$smarty.const.IMG_URL}2016080715521576.jpg"></li>
-                    <li><img src="{$smarty.const.IMG_URL}2016080715541276.jpg"></li>
-                    <li><img src="{$smarty.const.IMG_URL}2016080715065659.jpg"></li>
-                    <li><img src="{$smarty.const.IMG_URL}2016080715304475.jpg"></li>
-                    <li><img src="{$smarty.const.IMG_URL}2016080715480830.jpg"></li>
-                    <li><img src="{$smarty.const.IMG_URL}2016080714335369.jpg"></li>
-                    <li><img src="{$smarty.const.IMG_URL}2016080715315269.jpg"></li>
-                    <li><img src="{$smarty.const.IMG_URL}2016080715123261.jpg"></li>
-                </ul>
-            </div>
+    <div class="mian_bottom" style="margin-bottom: 40px">
+        <div class="news-list-top" style="margin-bottom: 8px">
+            <span>我的合作伙伴</span>
         </div>
-        <div class="pro-right">
-            <h5 class="pro-right-title">品牌专家</h5>
-            <ul>
-                <li class="clearfix" style="background: rgb(227, 226, 226);">
-                    <a class="per-head"><img src="{$smarty.const.IMG_URL}2016072210103066.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">陈富国</a>
-                        <p>最佳中国品牌价值排行榜的设计者</p>
-                        <p>北京师范大学心理学博士学位</p>
-                        <p>获得中欧国际商学院EMBA学位</p></div>
-                </li>
-                <li class="clearfix">
-                    <a class="per-head"><img src="{$smarty.const.IMG_URL}2016080714115926.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">曹越</a>
-                        <p>山东大学品牌经济研究中心副主任</p>
-                        <p>《BCSOK：品牌建设体系》</p>
-                        <p>致力于品牌型组织的研究与推广</p></div>
-                </li>
-                <li class="clearfix" style="background: rgb(227, 226, 226);">
-                    <a class="per-head"><img src="{$smarty.const.IMG_URL}2016080714192949.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">洪海江</a>
-                        <p>《颠覆式融合：全网品牌营销革命》</p>
-                        <p>《基于新媒体互动式广告的相关探索》</p>
-                        <p>南京师范大学现代广告品牌研究中心主任</p></div>
-                </li>
-                <li class="clearfix">
-                    <a class="per-head"><img src="{$smarty.const.IMG_URL}2016080714141277.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">孙丰国</a>
-                        <p>湘潭大学文学与新闻学院广告学系副教授</p>
-                        <p>《品牌研究》研究生课程</p>
-                        <p>《广告促动经济发展》，《广告研究》</p></div>
-                </li>
-                <li class="clearfix" style="background: rgb(227, 226, 226);">
-                    <a class="per-head"><img src="{$smarty.const.IMG_URL}2016080714163456.jpg" alt=""></a>
-                    <div class="per-info">
-                        <a class="per-name">许屹松</a>
-                        <p>北京大学CBO（首席品牌官）</p>
-                        <p>中国品牌领袖联盟（CBLC）副秘书长</p>
-                        <p>BAC国际品牌认定委员会中国区副秘书长</p></div>
-                </li>
-            </ul>
-        </div>
+        <div>{$middleInfo[2].discript}</div>
     </div>
+
+
+
 </div>

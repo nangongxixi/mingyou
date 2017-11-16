@@ -50,17 +50,36 @@ class IndexController extends Controller
             ->where('yw_articles.category_id=5 and yw_articles.status=0')
             ->order('yw_articles.sort desc, yw_articles.id desc')
             ->select();
+        $count = count($pinpai);
+        $newArr = [];
+        for($y = 0; $y < $count/4; $y++){
+            for($x = 0; $x < 4; $x++){
+                $newArr[$y][$x] = $pinpai[$y*4+$x];
+            }
+        }
 
-        //echo $articles->_sql();
-        //show_bug($pinpai);
+        //show_bug($newArr);
 
         //工程简介
         $aboutInfo = $articles->where('category_id=7')->select();
+        //首页中图8，首页联系我们9, 我的合作伙伴1
+        $middleInfo = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id')
+                               ->where('category_id in (8,9,1)')->select();
 
+        //echo $articles->_sql();
+        //show_bug($middleInfo);
+
+
+        //新闻列表
+        $news = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id')
+            ->where('category_id=2')->select();
 
         $this->assign('banner', $banner);
-        $this->assign('pinpai', $pinpai);
+        $this->assign('pinpai', $newArr);
         $this->assign('aboutInfo', $aboutInfo);
+        $this->assign('middleInfo', $middleInfo);
+        $this->assign('news', $news);
+
         $this->display();
     }
 

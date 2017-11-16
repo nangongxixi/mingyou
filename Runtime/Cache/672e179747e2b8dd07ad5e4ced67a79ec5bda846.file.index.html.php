@@ -1,30 +1,30 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 15:18:46
-         compiled from "D:/phpStudy/WWW/mingyou/Home/View\Index\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:136375a0ce7a3520a43-07889784%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 14:57:02
+         compiled from "D:/phpStudy/WWW/mingyou/Home/View\index\index.html" */ ?>
+<?php /*%%SmartyHeaderCode:114235a0d36be13abe5-55150342%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
-    'c0d718eac5390374fb87fdabde0964764a61013f' => 
+    '672e179747e2b8dd07ad5e4ced67a79ec5bda846' => 
     array (
-      0 => 'D:/phpStudy/WWW/mingyou/Home/View\\Index\\index.html',
-      1 => 1510816725,
+      0 => 'D:/phpStudy/WWW/mingyou/Home/View\\index\\index.html',
+      1 => 1510814973,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '136375a0ce7a3520a43-07889784',
+  'nocache_hash' => '114235a0d36be13abe5-55150342',
   'function' => 
   array (
   ),
-  'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5a0ce7a357696',
   'variables' => 
   array (
     'navList' => 0,
     'v' => 0,
   ),
   'has_nocache_code' => false,
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5a0d36be1987f',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a0ce7a357696')) {function content_5a0ce7a357696($_smarty_tpl) {?><!DOCTYPE html>
+<?php if ($_valid && !is_callable('content_5a0d36be1987f')) {function content_5a0d36be1987f($_smarty_tpl) {?><!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -59,7 +59,7 @@ share_style0_16.css">
     <a href="http://www.cqbpadp.com/index.php" class="logo"><img src="<?php echo @IMG_URL;?>
 log.png" alt=""></a>
     <div class="menu">
-        <a href="/" class="cur-menu">首页</a>
+        <a href="http://www.cqbpadp.com/index.php" class="cur-menu">首页</a>
         <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
  $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
  $_from = $_smarty_tpl->tpl_vars['navList']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -77,7 +77,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 <div class="footer">
     <div class="footer-inner clearfix">
         <div class="footer-left"><img src="<?php echo @IMG_URL;?>
-log.png" alt="" class="footer_log"></div>
+logo02.jpg" alt=""></div>
         <div class="footer-mid">
             <div class="footer-menu">
                 <a href="/">首页</a>
@@ -93,7 +93,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 </a>
                 <?php } ?>
             </div>
-            <p>Copyright 2016 All Rights Reserved. &nbsp; 中国名优企业品牌发展提升计划 &nbsp; &nbsp;版权所有<br></p>
+            <p>Copyright 2016 All Rights Reserved. &nbsp; 中国优选品牌促进发展工程 &nbsp; &nbsp;版权所有<br></p>
         </div>
 
     </div>
