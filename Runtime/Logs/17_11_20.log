@@ -1,0 +1,292 @@
+[ 2017-11-20T16:57:22+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.009001s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.018001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.018001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.006001s ]
+SQL: SHOW COLUMNS FROM `yw_articles_category` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `yw_articles_category` WHERE ( isindex=1 ) ORDER BY category_sort desc,category_id desc  [ RunTime:0.002000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.095006s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.095006s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T16:57:23+08:00 ] 127.0.0.1 /index.php/Home/index/main
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( yw_articles.category_id=15 and yw_articles.status=0 ) ORDER BY yw_articles.sort desc, yw_articles.id desc  [ RunTime:0.005000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( yw_articles.category_id=5 and yw_articles.status=0 ) ORDER BY yw_articles.sort desc, yw_articles.id desc  [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 5 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 6 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 7 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+SQL: SELECT * FROM `yw_articles` WHERE ( category_id=7 )  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( category_id in (8,9,1) )  [ RunTime:0.001000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( category_id=2 )  [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.040002s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.040002s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T16:57:23+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `yw_articles_category` [ RunTime:0.004001s ]
+SQL: SELECT * FROM `yw_articles_category` WHERE ( isindex=1 ) ORDER BY category_sort desc,category_id desc  [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.010000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.010000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.001000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T16:57:37+08:00 ] 127.0.0.1 /index.php/Home/index
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.003000s ]
+SQL: SHOW COLUMNS FROM `yw_articles_category` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `yw_articles_category` WHERE ( isindex=1 ) ORDER BY category_sort desc,category_id desc  [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.139008s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.139008s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T16:57:38+08:00 ] 127.0.0.1 /index.php/Home/index/main
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( yw_articles.category_id=15 and yw_articles.status=0 ) ORDER BY yw_articles.sort desc, yw_articles.id desc  [ RunTime:0.003000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( yw_articles.category_id=5 and yw_articles.status=0 ) ORDER BY yw_articles.sort desc, yw_articles.id desc  [ RunTime:0.001000s ]
+NOTIC: [8] Undefined offset: 5 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 6 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 7 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+SQL: SELECT * FROM `yw_articles` WHERE ( category_id=7 )  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( category_id in (8,9,1) )  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( category_id=2 )  [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.001001s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.001000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T16:57:39+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.000000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.000000s ]
+SQL: SHOW COLUMNS FROM `yw_articles_category` [ RunTime:0.000000s ]
+SQL: SELECT * FROM `yw_articles_category` WHERE ( isindex=1 ) ORDER BY category_sort desc,category_id desc  [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.015600s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.015600s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
+[ 2017-11-20T16:57:40+08:00 ] 127.0.0.1 /index.php/Home/index.php/Home/index2
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+ERR: 无法加载控制器:index.php
+
+[ 2017-11-20T16:58:50+08:00 ] 127.0.0.1 /index.php/Home/index
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.001000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.001000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.002000s ]
+SQL: SHOW COLUMNS FROM `yw_articles_category` [ RunTime:0.003000s ]
+SQL: SELECT * FROM `yw_articles_category` WHERE ( isindex=1 ) ORDER BY category_sort desc,category_id desc  [ RunTime:0.000000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.006001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.006001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T16:58:50+08:00 ] 127.0.0.1 /index.php/Home/index/main
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.001000s ]
+INFO: [ path_info ] --START--
+INFO: [ path_info ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002001s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002001s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( yw_articles.category_id=15 and yw_articles.status=0 ) ORDER BY yw_articles.sort desc, yw_articles.id desc  [ RunTime:0.003000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( yw_articles.category_id=5 and yw_articles.status=0 ) ORDER BY yw_articles.sort desc, yw_articles.id desc  [ RunTime:0.000000s ]
+NOTIC: [8] Undefined offset: 5 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 6 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+NOTIC: [8] Undefined offset: 7 D:\phpStudy\WWW\mingyou\Home\Controller\IndexController.class.php 第 57 行.
+SQL: SELECT * FROM `yw_articles` WHERE ( category_id=7 )  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( category_id in (8,9,1) )  [ RunTime:0.000000s ]
+SQL: SELECT * FROM `yw_articles` left join yw_images on yw_articles.id=yw_images.article_id WHERE ( category_id=2 )  [ RunTime:0.001000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.008000s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.008000s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.001000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.001000s ]
+
+[ 2017-11-20T16:58:50+08:00 ] 127.0.0.1 /
+INFO: [ app_init ] --START--
+INFO: [ app_init ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_begin ] --START--
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\ReadHtmlCache [ RunTime:0.000000s ]
+INFO: Run Behavior\CheckLang [ RunTime:0.002000s ]
+INFO: [ app_begin ] --END-- [ RunTime:0.002000s ]
+INFO: [ action_begin ] --START--
+INFO: [ action_begin ] --END-- [ RunTime:0.000000s ]
+NOTIC: [8192] mysql_connect(): The mysql extension is deprecated and will be removed in the future: use mysqli or PDO instead D:\phpStudy\WWW\mingyou\Firame\Library\Think\Db\Driver\Mysql.class.php 第 53 行.
+SQL: SHOW COLUMNS FROM `yw_articles` [ RunTime:0.004000s ]
+SQL: SHOW COLUMNS FROM `yw_articles_category` [ RunTime:0.004000s ]
+SQL: SELECT * FROM `yw_articles_category` WHERE ( isindex=1 ) ORDER BY category_sort desc,category_id desc  [ RunTime:0.001000s ]
+INFO: [ view_begin ] --START--
+INFO: [ view_begin ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_parse ] --START--
+INFO: Run Behavior\ParseTemplate [ RunTime:0.016001s ]
+INFO: [ view_parse ] --END-- [ RunTime:0.016001s ]
+INFO: [ view_filter ] --START--
+INFO: Run Behavior\WriteHtmlCache [ RunTime:0.000000s ]
+INFO: [ view_filter ] --END-- [ RunTime:0.000000s ]
+INFO: [ view_end ] --START--
+INFO: [ view_end ] --END-- [ RunTime:0.000000s ]
+INFO: [ app_end ] --START--
+INFO: Run Behavior\ShowPageTrace [ RunTime:0.000000s ]
+INFO: [ app_end ] --END-- [ RunTime:0.000000s ]
+
