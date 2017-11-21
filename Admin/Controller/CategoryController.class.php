@@ -75,7 +75,7 @@ class CategoryController extends AdminController
             }
             if ($_GET['id']) {
                 //图片列表
-                $imgInfo = D('images')->where('status=0 and article_id='.$_GET['id'])->select();
+                $imgInfo = D('images')->where('status=0 and type=1 and article_id='.$_GET['id'])->select();
                 $imgArr = [];
                 foreach ($imgInfo as $k=>$v){
                     array_push($imgArr,$v['img_url']);

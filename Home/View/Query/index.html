@@ -1,0 +1,76 @@
+<span id="head"></span>
+<link rel="stylesheet" href="{$smarty.const.CSS_URL}style.css">
+<script src="{$smarty.const.JS_URL}jquery-1.8.2.min.js"></script>
+
+{if isset($other.bannerImg[0].img_url)}
+<div style="margin: 0 auto; margin: 0 0 35px"><img width="100%" src="/{$other.bannerImg[0].img_url}"></div>
+{/if}
+<div class="main dh-cx">
+    <div class="left" style="width: 500px;overflow: hidden; margin-right: 30px; float: left">{$content[0].content}</div>
+    <ul>
+        <li>
+            <input type="hidden" name="type" value="2" id="type2">
+            <h3>工作人员查询</h3>
+            <div>
+                <input type="text" name="name" placeholder="员工姓名" class="in">
+                <input type="button" class="btn">
+            </div>
+        </li>
+        <li>
+            <input type="hidden" name="type" value="3" id="type3">
+            <h3>参录企业查询</h3>
+            <div>
+                <input type="text" name="buniess" placeholder="企业名称" class="in">
+                <input type="button" class="btn">
+            </div>
+        </li>
+    </ul>
+</div>
+
+<span id="bottom"></span>
+
+{literal}
+<script>
+    $(function () {
+        $('#head').load('/index.php/Home/Common/head');
+        $('#bottom').load('/index.php/Home/Common/bottom');
+
+        //查询数据
+        $('input[type="button"]').click(function () {
+            var val = $(this).prev().val();
+            var name = $(this).prev().attr('name');
+            var data = {"name": name, "value": val};
+
+            $.ajax({
+                url: '/index.php/Home/Query/QueryCenter',
+                type: "post",
+               // dataType: "json",
+                data: data,
+                async: false,
+                success: function (returnJSON) {
+
+                   console.log(returnJSON);
+                    if (returnJSON.status) {
+                        layer.msg(returnJSON.msg, {
+                            icon: 1,
+                            time: 2000
+                        }, function () {
+                            //_taq.push({convert_id: "74381099680", event_type: "form"});
+                            sessionStorage.clear();
+                            location.reload();
+                            // localStorage.setItem('address', '../article/showlist');//保存当前地址,避免刷新跳转
+                            // $('#content').load('../article/showlist');
+                        });
+                    } else {
+                        layer.msg(returnJSON.msg, {
+                            icon: 2,
+                            time: 2000
+                        });
+                    }
+                }
+            });
+
+        });
+    });
+</script>
+{/literal}

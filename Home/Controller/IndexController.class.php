@@ -11,45 +11,17 @@ class IndexController extends Controller
     {
         $articles = D('Articles');
 
-        //导航菜单
-        $navList = D('articles_category')->where('isindex=1')->order('category_sort desc,category_id desc')->select();
-
-        $link=[
-            'index.php/Home/index',
-            'index.php/Home/index1',
-            'index.php/Home/index2',
-            'index.php/Home/index3',
-            'index.php/Home/index4',
-            'index.php/Home/index5',
-        ];
-
-        for($i=0; $i<count($navList); $i++){
-            $navList[$i]['link']=$link[$i];
-        };
-
-       // show_bug($navList);
-
-        $this->assign('navList', $navList);
-
-        $this->display();
-    }
-
-
-    public function main()
-    {
-        $articles = D('Articles');
+        //品牌展播
+        $pinpaizb= $this->getInfo(4);
 
         //banner
-        $banner = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id')
-            ->where('yw_articles.category_id=15 and yw_articles.status=0')
-            ->order('yw_articles.sort desc, yw_articles.id desc')
-            ->select();
+        $banner = $this->getInfo(15);
+
+        //工程简介
+        $aboutInfo = $articles->where('category_id=7')->select();
 
         //名优品牌
-        $pinpai = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id')
-            ->where('yw_articles.category_id=5 and yw_articles.status=0')
-            ->order('yw_articles.sort desc, yw_articles.id desc')
-            ->select();
+        $pinpai = $this->getInfo(5);
         $count = count($pinpai);
         $newArr = [];
         for($y = 0; $y < $count/4; $y++){
@@ -58,29 +30,38 @@ class IndexController extends Controller
             }
         }
 
-        //show_bug($newArr);
-
-        //工程简介
-        $aboutInfo = $articles->where('category_id=7')->select();
         //首页中图8，首页联系我们9, 我的合作伙伴1
-        $middleInfo = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id')
-                               ->where('category_id in (8,9,1)')->select();
-
-        //echo $articles->_sql();
-        //show_bug($middleInfo);
-
+        $middleInfo = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id and  yw_images.status=0')
+            ->where('yw_articles.category_id in (8,9,1) and yw_articles.status=0')->select();
 
         //新闻列表
-        $news = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id')
-            ->where('category_id=2')->select();
+        $news = $this->getInfo(2);
+
+        //首页切换
+        $indexBanner = $this->getInfo(3);
+
+       //echo $articles->_sql();
+       // show_bug($middleInfo);
 
         $this->assign('banner', $banner);
+        $this->assign('indexBanner', $indexBanner);
         $this->assign('pinpai', $newArr);
         $this->assign('aboutInfo', $aboutInfo);
         $this->assign('middleInfo', $middleInfo);
         $this->assign('news', $news);
-
+        $this->assign('pinpaizb', $pinpaizb);
         $this->display();
+    }
+
+    function getInfo($category_id){
+        $articles = D('Articles');
+        $sql = "SELECT a.*,b.img_url FROM `yw_articles` a 
+                LEFT JOIN yw_images b 
+                ON a.id=b.article_id AND b.type=0 AND b.status=0
+                WHERE ( a.category_id=$category_id AND a.status=0 ) 
+                GROUP BY a.id
+                ORDER BY a.sort DESC, a.id DESC";
+        return $articles->query($sql);
     }
 
 }

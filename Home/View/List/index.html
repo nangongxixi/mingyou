@@ -1,0 +1,46 @@
+<span id="head"></span>
+<link rel="stylesheet" href="{$smarty.const.CSS_URL}style.css">
+<script src="{$smarty.const.JS_URL}jquery-1.8.2.min.js"></script>
+
+{if isset($other.bannerImg[0].img_url)}
+<div style="margin: 0 auto; margin: 0 0 35px"><img width="100%" src="/{$other.bannerImg[0].img_url}"></div>
+{/if}
+
+<div class="main">
+    <div class="news">
+        <ul>
+            {foreach  $ListInfo as $k=>$v}
+            <li class="clearfix">
+                <a href="/index.php/Home/List/detail/id/{$v.id}" class="news-left">
+                    {if isset($v.img_url)}
+                    <img src="/{$v.img_url}" width="380px" height="200px" alt="">
+                    {else}
+                    <img src="{$smarty.const.IMG_URL}default.jpg" width="380px" height="200px" alt="">
+                    {/if}
+                </a>
+                <div class="news-right">
+                    <h5 class="news-title">
+                        <a href="/index.php/Home/List/detail/id/{$v.id}">{$v.title}</a>
+                    </h5>
+                    <div class="news-date">
+                        <span>{$v.createtime}</span>
+                        <span>阅读：{$v.click}</span>
+                    </div>
+                    <div class="news-text">{$v.discript}</div>
+                </div>
+            </li>
+            {/foreach}
+        </ul>
+    </div>
+</div>
+
+<span id="bottom"></span>
+
+{literal}
+<script>
+    $(function () {
+        $('#head').load('/index.php/Home/Common/head');
+        $('#bottom').load('/index.php/Home/Common/bottom');
+    });
+</script>
+{/literal}

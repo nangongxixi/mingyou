@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>{$smarty.const.SITE_NAME}</title>
+    <meta name="keywords" content="{$smarty.const.SITE_KEYWORDS}">
+    <meta name="description" content="{$smarty.const.SITE_DESCRIPTION}">
+
+    <script src="{$smarty.const.JS_URL}script.js"></script>
+    <script src="{$smarty.const.JS_URL}share.js"></script>
+
+    <link rel="stylesheet" href="{$smarty.const.CSS_URL}share_style0_16.css">
+
+</head>
+<body>
+<div class="header clearfix">
+    <a href="/" class="logo"><img src="{$smarty.const.IMG_URL}log.png" alt=""></a>
+    <div class="menu">
+        <a href="/" class="cur-menu">首页</a>
+        {foreach $navList as $k=>$v}
+        <a href="{$v.link}">{$v.category_name}</a>
+        {/foreach}
+    </div>
+</div>
+
+{literal}
+<script>
+    $(function () {
+        $('.menu a').eq(sessionStorage.getItem('site-index')).addClass('cur-menu').siblings().removeClass('cur-menu');
+        $('.menu a').click(function () {
+            $(this).addClass('cur-menu').siblings().removeClass('cur-menu');
+            sessionStorage.setItem('site-index', $(this).index());
+        });
+    });
+</script>
+{/literal}

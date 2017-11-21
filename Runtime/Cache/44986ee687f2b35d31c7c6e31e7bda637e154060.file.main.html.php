@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 15:13:30
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-21 11:21:17
          compiled from "D:/phpStudy/WWW/mingyou/Home/View\index\main.html" */ ?>
 <?php /*%%SmartyHeaderCode:134705a0bd027bb59b1-78738801%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '44986ee687f2b35d31c7c6e31e7bda637e154060' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Home/View\\index\\main.html',
-      1 => 1510816405,
+      1 => 1511233531,
       2 => 'file',
     ),
   ),
@@ -27,6 +27,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'vv' => 0,
     'middleInfo' => 0,
     'news' => 0,
+    'indexBanner' => 0,
+    'pinpaizb' => 0,
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
@@ -45,8 +47,6 @@ jquery.slideBox.min.js" type="text/javascript"></script>
         });
     });
 </script>
-
-
 
 <!--banner开始-->
 <div class="fullSlide">
@@ -170,7 +170,7 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
     </div>
 
     <div class="pro-nav"><a><img src="<?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[0]['img_url'];?>
-" alt="" style="margin-top: 30px"></a></div>
+" alt="" style="margin-top: 30px" width="1200" height="130"></a></div>
 
     <div class="pro-btm clearfix">
         <div class="pro-left">
@@ -213,7 +213,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
             <ul class="items">
                 <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
  $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
- $_from = $_smarty_tpl->tpl_vars['banner']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->tpl_vars['indexBanner']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
 $_smarty_tpl->tpl_vars['v']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
@@ -228,12 +228,12 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 
     <div class="pro-list">
         <div class="news-list-top" style="margin-bottom: 8px">
-            <span>名优品牌</span>
+            <span>品牌展播</span>
         </div>
         <ul>
             <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
  $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
- $_from = $_smarty_tpl->tpl_vars['pinpai']->value[0]; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+ $_from = $_smarty_tpl->tpl_vars['pinpaizb']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
 foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
 $_smarty_tpl->tpl_vars['v']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
@@ -262,7 +262,5 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
         <div><?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[2]['discript'];?>
 </div>
     </div>
-
-
 
 </div><?php }} ?>

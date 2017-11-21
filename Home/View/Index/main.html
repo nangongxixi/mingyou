@@ -12,8 +12,6 @@
     });
 </script>
 
-
-
 <!--banner开始-->
 <div class="fullSlide">
     <div class="bd">
@@ -109,7 +107,7 @@
         </div>
     </div>
 
-    <div class="pro-nav"><a><img src="{$middleInfo[0].img_url}" alt="" style="margin-top: 30px"></a></div>
+    <div class="pro-nav"><a><img src="{$middleInfo[0].img_url}" alt="" style="margin-top: 30px" width="1200" height="130"></a></div>
 
     <div class="pro-btm clearfix">
         <div class="pro-left">
@@ -141,7 +139,7 @@
         <!-- 新闻切换 -->
         <div id="demo1" class="slideBox" style="width: 380px; height: 250px; overflow: hidden; float: right">
             <ul class="items">
-                {foreach $banner as $k=>$v}
+                {foreach $indexBanner as $k=>$v}
                 <li class="" style="width: 380px; height: 250px;"><a href="http://www.jsdaima.com/" title="这里是测试标题一"><img
                         src="/{$v.img_url}"></a></li>
                 {/foreach}
@@ -151,10 +149,10 @@
 
     <div class="pro-list">
         <div class="news-list-top" style="margin-bottom: 8px">
-            <span>名优品牌</span>
+            <span>品牌展播</span>
         </div>
         <ul>
-            {foreach $pinpai[0] as $k=>$v}
+            {foreach $pinpaizb as $k=>$v}
             <li>
                 <a class="pro-list-video">
                     <img src="/{$v.img_url}" alt="">
@@ -175,7 +173,5 @@
         </div>
         <div>{$middleInfo[2].discript}</div>
     </div>
-
-
 
 </div>
