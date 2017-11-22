@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-15 16:37:33
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-22 15:02:33
          compiled from "D:/phpStudy/WWW/mingyou/Admin/View\Common\left.html" */ ?>
 <?php /*%%SmartyHeaderCode:310815a0bd505a38836-33508989%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '19199c0f3eeecf1443ebc662ba42f98b01451059' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Admin/View\\Common\\left.html',
-      1 => 1510735049,
+      1 => 1511334149,
       2 => 'file',
     ),
   ),
@@ -40,6 +40,11 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     <li style="cursor:pointer" class="menu" save="caidan2" minname="文章列表" address="/index.php/Admin/Article/showlist">
         <a href="#">
             <i class="fa fa-paste"></i><span>文章管理</span>
+        </a>
+    </li>
+    <li style="cursor:pointer" class="menu" save="caidan5" minname="备查信息库" address="/index.php/Admin/UserInfo/showlist">
+        <a href="#">
+            <i class="fa fa-paste"></i><span>备查信息库</span>
         </a>
     </li>
     <li style="cursor:pointer" class="menu" save="caidan4"  minname="类别列表" address="/index.php/Admin/Category/showlist">

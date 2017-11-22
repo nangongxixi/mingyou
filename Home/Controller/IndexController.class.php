@@ -31,17 +31,22 @@ class IndexController extends Controller
         }
 
         //首页中图8，首页联系我们9, 我的合作伙伴1
-        $middleInfo = $articles->join('left join yw_images on yw_articles.id=yw_images.article_id and  yw_images.status=0')
-            ->where('yw_articles.category_id in (8,9,1) and yw_articles.status=0')->select();
+        $sql="
+            SELECT * FROM `yw_articles` a
+            LEFT JOIN yw_images b ON a.id=b.article_id AND b.status=0 
+            WHERE ( a.category_id in (8,9,1) AND a.status=0 )
+            GROUP BY a.id
+        ";
+        $middleInfo = $articles->query($sql);
+
+       // echo $articles->_sql();
+       // show_bug($middleInfo);
 
         //新闻列表
         $news = $this->getInfo(2);
 
         //首页切换
         $indexBanner = $this->getInfo(3);
-
-       //echo $articles->_sql();
-       // show_bug($middleInfo);
 
         $this->assign('banner', $banner);
         $this->assign('indexBanner', $indexBanner);

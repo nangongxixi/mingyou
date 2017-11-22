@@ -21,14 +21,32 @@ class QueryController extends Controller
 
     public function QueryCenter()
     {
-        $articles = D('Articles');
-
-        //todo 查询语句
-
-        show_bug($_POST);
+        $type = $_POST['type']; //type 0工作人员，1参录企业
+        $keyword = $_POST['keyword'];
+        $queryResult = $this->getQueryResult($type, $keyword);
+        if ($queryResult) {
+            ob_clean();//不加这个，前端收不到json数据
+            $this->ajaxReturn(['status' => true, 'type' => $type, 'msg' => '查询成功', 'queryResult' => $queryResult[0]]);
+        } else {
+            ob_clean();//不加这个，前端收不到json数据
+            $this->ajaxReturn(['status' => false, 'msg' => '暂无信息']);
+        }
     }
 
-    function getInfo($category_id){
+    //查询中心的查询结果
+    function getQueryResult($type, $keyword)
+    {
+        $userInfo = D('userinfo');
+        $sql = "SELECT a.*,b.img_url FROM `yw_userinfo` a
+                LEFT JOIN yw_images b
+                ON a.id=b.article_id AND b.type=2 AND b.status=0
+                WHERE ( a.type=$type AND a.status=0  AND name LIKE '%$keyword%')
+                GROUP BY a.id";
+        return $userInfo->query($sql);
+    }
+
+    function getInfo($category_id)
+    {
         $articles = D('Articles');
         $sql = "SELECT a.* FROM `yw_articles` a 
                 LEFT JOIN yw_articles_category b ON a.id=b.category_id  AND b.status=0 

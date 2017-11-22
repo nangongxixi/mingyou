@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-21 11:20:21
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-22 16:50:47
          compiled from "D:/phpStudy/WWW/mingyou/Home/View\Index\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:136375a0ce7a3520a43-07889784%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c0d718eac5390374fb87fdabde0964764a61013f' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Home/View\\Index\\index.html',
-      1 => 1511234418,
+      1 => 1511340645,
       2 => 'file',
     ),
   ),
@@ -200,7 +200,7 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
                 <!-- 新闻列表 -->
                 <div class="news-list" style="float: left; margin-left: 25px">
                     <div class="news-list-top">
-                        <a href="#">更多&gt;&gt;</a>
+                        <a href="/index.php/Home/List/index/catid/2">更多&gt;&gt;</a>
                         <span>新闻动态</span>
                     </div>
                     <ul>

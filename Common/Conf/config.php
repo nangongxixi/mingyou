@@ -8,7 +8,7 @@ return array(
     //让页面显示追踪日志信息(右下角的黑框框)
     'SHOW_PAGE_TRACE' => false,
     //url地址大小写不敏感设置
-    'URL_CASE_INSENSITIVE' => false,
+    'URL_CASE_INSENSITIVE' =>true,
     //数据库连接配置
     'DB_TYPE' => 'mysql', // 数据库类型
 
@@ -27,6 +27,11 @@ return array(
      'DB_USER' => 'root', // 用户名
      'DB_PWD' => '123456', // 密码
      'DB_PORT' => '3306', // 端口
+
+    'QUERY_TYPE' => [
+        0 => '工作人员',
+        1 => '参录企业',
+    ],
 
 
     'DB_PREFIX' => 'yw_', // 数据库表前缀

@@ -1,49 +1,63 @@
 <?php
-	echo phpinfo();
-?>
+// 本类由系统自动生成，仅供测试用途
+namespace Home\Controller;
+
+use Think\Controller;
+
+class QueryController extends Controller
+{
+
+    public function index($catid)
+    {
+        //banner图
+        $other['bannerImg'] = D('images')->field('img_url')->where('type=1 and status=0 and article_id=' . $catid)->select();
+
+        $content = $this->getInfo($catid);
+
+        $this->assign('other', $other);
+        $this->assign('content', $content);
+        $this->display();
+    }
+
+    public function QueryCenter()
+    {
+        //type 0工作人员，1参录企业
+        $type = $_POST['type'];
+        $keyword = $_POST['keyword'];
+        $queryResult = $this->getInfo($type,$keyword);
 
 
 
-<!DOCTYPE html>
-<!-- saved from url=(0050)http://cd.moerlong.com/?urlCode=wxoct4&fromSite=bd -->
-<html>
-<head>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-    <script>window.BasicDomain = ".moerlong.com";</script>
 
-    <title>中国名优企业品牌发展提升计划</title>
-    <meta content="中国名优企业品牌发展提升计划" name="keywords">
-    <meta content="中国名优企业品牌发展提升计划" name="description">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        if ($queryResult) {
+            ob_clean();//不加这个，前端收不到json数据
+            $this->ajaxReturn(['status' => true, 'msg' => '查询成功', 'queryResult' => $queryResult]);
+        } else {
+            ob_clean();//不加这个，前端收不到json数据
+            $this->ajaxReturn(['status' => false, 'msg' => '暂无信息']);
+        }
+    }
 
-    <meta HTTP-EQUIV="Page-Enter" CONTENT="revealtrans(duration=6.0, transition=23)">
+    function getInfo($type, $keyword)
+    {
+        $userInfo = D('userinfo');
+        $sql = "SELECT a.*,b.img_url FROM `yw_userinfo` a
+                LEFT JOIN yw_images b
+                ON a.id=b.article_id AND b.type=2 AND b.status=0
+                WHERE ( a.type=$type AND a.status=0  AND name LIKE '%$keyword%');
+                GROUP BY a.id";
+        $dd = $userInfo->query($sql);
 
-    <meta HTTP-EQUIV="Page-Exit" CONTENT="revealtrans(duration=6.0, transition=23)">
+        echo $userInfo->_sql();
 
-    <link rel="icon" href="{$smarty.const.IMG_URL}bitbug_favicon.ico" type="image/x-icon"/>
+        show_bug($dd);
 
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}edai-global.css">
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}edai-index.css">
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}alifont/iconfont.css">
+        exit;
 
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}yd-index.css">
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}yd-Common.css">
-    <link rel="stylesheet" href="{$smarty.const.CSS_URL}yd-reset.css">
+        // return $sql;
+        // show_bug($userInfo->query($sql));
+        // exit;
+        return $userInfo->query($sql);
+    }
 
-    <!-- ./wrapper -->
-    <script src="{$smarty.const.ADMIN_JS_URL}jquery-2.2.3.min.js"></script>
-    <!--banner-->
-    <script src="{$smarty.const.JS_URL}unslider.min.js"></script>
-    <!--客服-->
-    <script src="{$smarty.const.JS_URL}yd-ScrollPic.js" type="text/javascript"></script>
-    <!-- 问答 -->
-    <script src="{$smarty.const.JS_URL}yd-MSClass.js" type="text/javascript"></script>
-    <!-- layer -->
-    <script src="{$smarty.const.STATIC_URL}layer/layer.js"></script>
-
-
-</head>
-<body>
-
-</body>
-</html>
+}
