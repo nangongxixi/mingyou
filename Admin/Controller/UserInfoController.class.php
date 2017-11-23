@@ -22,8 +22,8 @@ class UserInfoController extends AdminController
         }
 
         //重置分页条件
-        $conditionSear = ltrim($condition,' and ');
-        $total = $infop->where($conditionSear)->count();
+        $conditionSear = rtrim($condition,' and ');
+        $total = $infop->where('status=0'.$conditionSear)->count();
         //echo $infop->_sql();
         $per = 14;
         $page = new \Component\Page($total, $per); //autoload        
@@ -103,6 +103,7 @@ class UserInfoController extends AdminController
                     $imgArr = array_values($_SESSION['imgArr']);
 
                     if (!empty($imgArr)) {
+                        $data['type']=2; //图片的类型
                         $inertID = $images->where('id in (' . implode(",", $imgArr) . ')')->save($data);
                         unset($_SESSION['imgArr']);//干掉上次添加多图的session
                     }
@@ -202,7 +203,10 @@ class UserInfoController extends AdminController
             $images = D('images');
             $data['img_url'] = $uploaddir . $_FILES['file']['name'];
             $data["createtime"] = date("Y-m-d H:i:s", time());
+            $data["type"] = 2;//缩略图type
             $addid = $images->add($data);
+            echo $images->_sql();
+            exit();
             $_SESSION['imgArr'][$addid] = $addid;//将新增返回的id保存到session，以便新增资料的时候回填
         } else {
             print "Possible file upload attack!  Here's some debugging info:\n";

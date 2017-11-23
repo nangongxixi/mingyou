@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-22 16:43:26
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-23 17:01:22
          compiled from "D:/phpStudy/WWW/mingyou/Admin/View\UserInfo\add.html" */ ?>
 <?php /*%%SmartyHeaderCode:295335a152e329e4f78-11537521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d5b5598f248b46d94ec2a8183d30e3974396482' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Admin/View\\UserInfo\\add.html',
-      1 => 1511340203,
+      1 => 1511427679,
       2 => 'file',
     ),
   ),
@@ -38,7 +38,7 @@ upImage/zyupload/zyupload.basic-1.0.0.min.js"></script>
             <form method="post" enctype="multipart/form-data" id="formData">
                 <table class="table table-bordered">
                     <tbody>
-                    <tr>
+                    <tr class="covimg">
                         <th class="detail-title">封面图</th>
                         <td>
                             <span id="imgArr" style="display: none; ">
@@ -58,24 +58,13 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
                         </td>
                     </tr>
                     <tr>
-                        <th class="detail-title">名称</th>
+                        <th class="detail-title">所属分类</th>
                         <td>
                             <div>
                                 <input type="hidden" name="id" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['info']->value['id'];?>
 ">
-                                <input type="text" name="name" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['info']->value['name'];?>
-"
-                                       errorMsg="名称不能为空"
-                                       placeholder="请填写名称">
-                            </div>
-                        </td>
-                    </tr>
-                    <tr>
-                        <th class="detail-title">所属分类</th>
-                        <td>
-                            <div>
-                                <select class="form-control" name="type">
-                                    <option value="">—— 请选择 ——</option>
+                                <select class="form-control" name="type" errorMsg="请选择分类">
+                                    <option value="">—— 请选择分类 ——</option>
                                     <?php  $_smarty_tpl->tpl_vars['vv'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['vv']->_loop = false;
  $_smarty_tpl->tpl_vars['kk'] = new Smarty_Variable;
  $_from = C('QUERY_TYPE'); if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
@@ -91,8 +80,51 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
                             </div>
                         </td>
                     </tr>
-
+                    <tr class="work-person">
+                        <th class="detail-title">工号</th>
+                        <td>
+                            <div>
+                                <input type="text" name="number" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['info']->value['number'];?>
+"
+                                       errorMsg="工号不能为空"
+                                       placeholder="请填写工号">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="work-person">
+                        <th class="detail-title">所属区域</th>
+                        <td>
+                            <div>
+                                <input type="text" name="area" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['info']->value['area'];?>
+"
+                                       errorMsg="区域不能为空"
+                                       placeholder="请填写区域">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="work-person">
+                        <th class="detail-title">职务</th>
+                        <td>
+                            <div>
+                                <input type="text" name="job" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['info']->value['job'];?>
+"
+                                       errorMsg="职务不能为空"
+                                       placeholder="请填写职务">
+                            </div>
+                        </td>
+                    </tr>
                     <tr>
+                        <th class="detail-title" style="width: 100px !important;">名称</th>
+                        <td>
+                            <div>
+                                <input type="text" name="name" class="form-control" value="<?php echo $_smarty_tpl->tpl_vars['info']->value['name'];?>
+"
+                                       errorMsg="名称不能为空"
+                                       placeholder="请填写名称">
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bunInfo">
                         <th class="detail-title">公司信息</th>
                         <td>
                            <!-- <textarea class="form-control" name="discript" rows="3"
@@ -149,9 +181,7 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
 
             var discript =  CKEDITOR.instances.TextArea2.getData();
 
-
             formData.append('discript', discript);
-
 
             $.ajax({
                 url: '../UserInfo/add',
@@ -244,6 +274,20 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
 
     //初始化需要运行的东西
     function init() {
+        //表单显示控制
+        $('.work-person,.covimg,.bunInfo').hide();
+        $('select[name="type"]').change(function(){
+            var optionVal = parseInt($(this).children('option:selected').val());
+            if(optionVal==0){
+                $('.work-person,.covimg').show();
+                $('.bunInfo').hide();
+            }
+            if(optionVal==1){
+                $('.bunInfo').show();
+                $('.work-person,.covimg').hide();
+            }
+        })
+
         //初始化
         var editor2 = CKEDITOR.replace('TextArea2', {
             filebrowserImageUploadUrl: '../manager/ck_upload'
@@ -279,9 +323,9 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
 
     //数据验证
     function validata() {
-        var formVal = $('form input,textarea');
+        var formVal = $('form input,textarea,select');
 
-        //标题
+        //类型
         if ($(formVal[2]).val() == '') {
             layer.msg($(formVal[2]).attr("errorMsg"), {
                 icon: 2,
@@ -290,9 +334,46 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
             return false;
         }
 
+        console.log($(formVal[3]).parent().parent().parent('.work-person').css('display'));
+
+
+        //工号
+        if($(formVal[3]).parent().parent().parent('.work-person').css('display')!='none' && $(formVal[3]).val() == ''){
+            layer.msg($(formVal[3]).attr("errorMsg"), {
+                icon: 2,
+                time: 2000
+            });
+            return false;
+        }
+
+        //区域
+        if($(formVal[4]).parent().parent().parent('.work-person').css('display')!='none' && $(formVal[4]).val() == ''){
+            layer.msg($(formVal[4]).attr("errorMsg"), {
+                icon: 2,
+                time: 2000
+            });
+            return false;
+        }
+
+        //职务
+        if($(formVal[5]).parent().parent().parent('.work-person').css('display')!='none' && $(formVal[5]).val() == ''){
+            layer.msg($(formVal[5]).attr("errorMsg"), {
+                icon: 2,
+                time: 2000
+            });
+            return false;
+        }
+
+        //名称
+        if($(formVal[6]).parent().parent().parent('.work-person').css('display')!='none' && $(formVal[6]).val() == ''){
+            layer.msg($(formVal[6]).attr("errorMsg"), {
+                icon: 2,
+                time: 2000
+            });
+            return false;
+        }
 
         return true;
-
     }
 
     //相册图片张数限制

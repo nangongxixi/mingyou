@@ -1,5 +1,4 @@
 ﻿<?php
-
 return array(
     //'配置项'=>'配置值'
     //url模式设置
@@ -8,34 +7,29 @@ return array(
     //让页面显示追踪日志信息(右下角的黑框框)
     'SHOW_PAGE_TRACE' => false,
     //url地址大小写不敏感设置
-    'URL_CASE_INSENSITIVE' =>true,
+    'URL_CASE_INSENSITIVE' => false,
     //数据库连接配置
     'DB_TYPE' => 'mysql', // 数据库类型
-
     /*
-     //云端数据库连接配置
-     'DB_HOST' => 'localhost ', // 服务器地址
-     'DB_NAME' => 'sccdmingyou', // 数据库名
-     'DB_USER' => 'cdmidai', // 用户名
-     'DB_PWD' => 'mdjr9999', // 密码
-     'DB_PORT' => '3306', // 端口
-  */
-
-     //本地数据库连接配置
-     'DB_HOST' => 'localhost', // 服务器地址
-     'DB_NAME' => 'sccdmingyou', // 数据库名
-     'DB_USER' => 'root', // 用户名
-     'DB_PWD' => '123456', // 密码
-     'DB_PORT' => '3306', // 端口
-
+         //云端数据库连接配置
+         'DB_HOST' => 'sql.bgp168.vhostgo.com', // 服务器地址
+         'DB_NAME' => 'chbrand', // 数据库名
+         'DB_USER' => 'chbrand', // 用户名
+         'DB_PWD' => 's7z5d7s6', // 密码
+         'DB_PORT' => '3306', // 端口
+    */
+    //本地数据库连接配置
+    'DB_HOST' => 'localhost', // 服务器地址
+    'DB_NAME' => 'sccdmingyou', // 数据库名
+    'DB_USER' => 'root', // 用户名
+    'DB_PWD' => '123456', // 密码
+    'DB_PORT' => '3306', // 端口
     'QUERY_TYPE' => [
         0 => '工作人员',
         1 => '参录企业',
     ],
-
-
     'DB_PREFIX' => 'yw_', // 数据库表前缀
-	'DB_SQL_LOG'         =>  TRUE, // SQL执行日志记录
+    'DB_SQL_LOG' => TRUE, // SQL执行日志记录
     'DB_FIELDTYPE_CHECK' => false, // 是否进行字段类型检查
     //以下字段缓存没有其作用
     //① 如果是调试模式就不起作用
@@ -49,5 +43,4 @@ return array(
     'LANG_AUTO_DETECT' => true, // 自动侦测语言 开启多语言功能后有效
     'LANG_LIST' => 'zh-cn,zh-tw,en-us', // 允许切换的语言列表 用逗号分隔
     'VAR_LANGUAGE' => 'hl', // 默认语言切换变量
-
 );
