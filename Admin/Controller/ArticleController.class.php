@@ -236,7 +236,7 @@ class ArticleController extends AdminController
 		$imgMod = D('images');
 		//编辑排序
 		if($_POST['sort']){			
-			$inertID = $imgMod->where('id='.$_POST['id'])->save($_POST);
+			$inertID = $imgMod->where('status=0 and type=0 and id='.$_POST['id'])->save($_POST);
 			if ($inertID) {
 				$this->ajaxReturn(array(
 					'status' => true,
@@ -251,7 +251,7 @@ class ArticleController extends AdminController
 		}
 		//删除
 		if($_POST['status']){			
-			$inertID = $imgMod->where('id='.$_POST['id'])->save($_POST);
+			$inertID = $imgMod->where('status=0 and type=0 and id='.$_POST['id'])->save($_POST);
 			if ($inertID) {
 				$this->ajaxReturn(array(
 					'status' => true,
@@ -266,7 +266,7 @@ class ArticleController extends AdminController
 		}
 		
 		
-        $info = $imgMod->where('status=0 and article_id='.$id)->order('sort desc,id desc')->select();
+        $info = $imgMod->where('status=0 and type=0 and article_id='.$id)->order('sort desc,id desc')->select();
         $this->assign('info', $info);
         $this->display();
     }

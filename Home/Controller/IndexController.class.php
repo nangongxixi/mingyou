@@ -40,7 +40,7 @@ class IndexController extends Controller
         $middleInfo = $articles->query($sql);
 
        // echo $articles->_sql();
-       // show_bug($middleInfo);
+      // show_bug($newArr);
 
         //新闻列表
         $news = $this->getInfo(2);
@@ -50,7 +50,7 @@ class IndexController extends Controller
 
         $this->assign('banner', $banner);
         $this->assign('indexBanner', $indexBanner);
-        $this->assign('pinpai', $newArr);
+        $this->assign('pinpai', $pinpai);
         $this->assign('aboutInfo', $aboutInfo);
         $this->assign('middleInfo', $middleInfo);
         $this->assign('news', $news);

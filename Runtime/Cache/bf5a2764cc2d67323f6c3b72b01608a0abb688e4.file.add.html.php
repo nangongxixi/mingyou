@@ -1,20 +1,22 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-16 11:08:10
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-24 10:45:15
          compiled from "D:/phpStudy/WWW/mingyou/Admin/View\article\add.html" */ ?>
-<?php /*%%SmartyHeaderCode:107405a0d011adde474-62006191%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:185485a178642abe925-75946868%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'bf5a2764cc2d67323f6c3b72b01608a0abb688e4' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Admin/View\\article\\add.html',
-      1 => 1510649725,
+      1 => 1511491504,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '107405a0d011adde474-62006191',
+  'nocache_hash' => '185485a178642abe925-75946868',
   'function' => 
   array (
   ),
+  'version' => 'Smarty-3.1.6',
+  'unifunc' => 'content_5a178642b56ed',
   'variables' => 
   array (
     'info' => 0,
@@ -23,10 +25,8 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'k' => 0,
   ),
   'has_nocache_code' => false,
-  'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5a0d011aea582',
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a0d011aea582')) {function content_5a0d011aea582($_smarty_tpl) {?><!--图片上传-->
+<?php if ($_valid && !is_callable('content_5a178642b56ed')) {function content_5a178642b56ed($_smarty_tpl) {?><!--图片上传-->
 <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
 upImage/zyupload/skins/zyupload-1.0.0.min.css " type="text/css">
 <script type="text/javascript" src="<?php echo @STATIC_URL;?>
@@ -105,7 +105,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
                         </td>
                     </tr>
                     <tr>
-                        <th class="detail-title">描述</th>
+                        <th class="detail-title">文章描述</th>
                         <td>
                            <!-- <textarea class="form-control" name="discript" rows="3"
                                       placeholder="请填写描述" errorMsg="描述不能为空"><?php echo $_smarty_tpl->tpl_vars['info']->value['discript'];?>
@@ -116,20 +116,22 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
                             </div>
                         </td>
                     </tr>
+                    <!--
                     <tr>
                         <th class="detail-title">产品优势（栏目页有效）</th>
                         <td>
-                            <!-- <textarea class="form-control" name="discript" rows="3"
+                            <textarea class="form-control" name="discript" rows="3"
                                        placeholder="请填写描述" errorMsg="描述不能为空"><?php echo $_smarty_tpl->tpl_vars['info']->value['discript'];?>
-</textarea>-->
+</textarea>
                             <div>
                                 <textarea id="TextArea3" name="advantage" cols="20" rows="2" class="ckeditor"><?php echo $_smarty_tpl->tpl_vars['info']->value['advantage'];?>
 </textarea>
                             </div>
                         </td>
                     </tr>
+                    -->
                     <tr>
-                        <th class="detail-title">内容（栏目页有效）</th>
+                        <th class="detail-title">文章内容</th>
                         <td>
                             <div>
                                 <textarea id="TextArea1" name="content" cols="20" rows="2" class="ckeditor"><?php echo $_smarty_tpl->tpl_vars['info']->value['content'];?>
@@ -137,18 +139,20 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
                             </div>
                         </td>
                     </tr>
+                    <!--
                     <tr>
                         <th class="detail-title">产品详情（详情页有效）</th>
                         <td>
-                            <!-- <textarea class="form-control" name="discript" rows="3"
+                           <textarea class="form-control" name="discript" rows="3"
                                        placeholder="请填写描述" errorMsg="描述不能为空"><?php echo $_smarty_tpl->tpl_vars['info']->value['discript'];?>
-</textarea>-->
+</textarea>
                             <div>
                                 <textarea id="TextArea4" name="detail" cols="20" rows="2" class="ckeditor"><?php echo $_smarty_tpl->tpl_vars['info']->value['detail'];?>
 </textarea>
                             </div>
                         </td>
                     </tr>
+                    -->
                     <tr>
                         <td colspan="2" style="text-align: center">
                             <button type="reset" class="btn bg-orange btn-lg " status="0">重置
@@ -170,9 +174,8 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
         init();//初始化
 
         var discript = $.parseHTML(sessionStorage.getItem('editorcontent2'));//把html转换成实体
-        var advantage = $.parseHTML(sessionStorage.getItem('editorcontent3'));//把html转换成实体
         var content = $.parseHTML(sessionStorage.getItem('editorcontent'));//把html转换成实体
-        var detail = $.parseHTML(sessionStorage.getItem('editorcontent4'));//把html转换成实体
+
 
        // editor3.setData(advantage);//给富文本区域赋值
 
@@ -196,15 +199,12 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
             var formData = new FormData($("#formData")[0]);
 
             var discript =  CKEDITOR.instances.TextArea2.getData();
-            var advantage =  CKEDITOR.instances.TextArea3.getData();
-            var detail =  CKEDITOR.instances.TextArea4.getData();
            //var editorcontent =  $(window.frames["yuliu_ckedtor"].document).find("body").html();
             var editorcontent = CKEDITOR.instances.TextArea1.getData();
 
             formData.append('discript', discript);
-            formData.append('advantage', advantage);
             formData.append('content', editorcontent);
-            formData.append('detail', detail);
+
 
             $.ajax({
                 url: '../article/add',
@@ -304,12 +304,6 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
         var editor2 = CKEDITOR.replace('TextArea2', {
             filebrowserImageUploadUrl: '../manager/ck_upload'
         });
-        var editor3 = CKEDITOR.replace('TextArea3', {
-            filebrowserImageUploadUrl: '../manager/ck_upload'
-        });
-        var editor4 = CKEDITOR.replace('TextArea4', {
-            filebrowserImageUploadUrl: '../manager/ck_upload'
-        });
 
         var inputVal = JSON.parse(sessionStorage.getItem("inputVal"));
         //如果还没保存过输入，就定义一个空对象来保存
@@ -323,8 +317,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
         });
         editor.setData(sessionStorage.getItem("editorcontent"));//回填富文本区域
         editor2.setData(sessionStorage.getItem("editorcontent2"));//回填富文本区域
-        editor3.setData(sessionStorage.getItem("editorcontent3"));//回填富文本区域
-        editor4.setData(sessionStorage.getItem("editorcontent4"));//回填富文本区域
+
 
 
         //保存输入
@@ -341,12 +334,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
         editor2.on('change', function (event) {
             sessionStorage.setItem('editorcontent2', this.getData());
         });
-        editor3.on('change', function (event) {
-            sessionStorage.setItem('editorcontent3', this.getData());
-        });
-        editor4.on('change', function (event) {
-            sessionStorage.setItem('editorcontent4', this.getData());
-        });
+
     }
 
 

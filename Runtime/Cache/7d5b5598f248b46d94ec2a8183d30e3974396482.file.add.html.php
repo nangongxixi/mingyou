@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-23 17:01:22
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-24 09:24:25
          compiled from "D:/phpStudy/WWW/mingyou/Admin/View\UserInfo\add.html" */ ?>
 <?php /*%%SmartyHeaderCode:295335a152e329e4f78-11537521%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     '7d5b5598f248b46d94ec2a8183d30e3974396482' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Admin/View\\UserInfo\\add.html',
-      1 => 1511427679,
+      1 => 1511447928,
       2 => 'file',
     ),
   ),
@@ -275,17 +275,18 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
     //初始化需要运行的东西
     function init() {
         //表单显示控制
-        $('.work-person,.covimg,.bunInfo').hide();
+        var id = $('input[name="id"]').val();
+        var optionVal = $('select[name="type"]').val();
+        //加入是修改，则根据修改类型显示相应表单，否则是新增
+        if(id){
+            formItem(optionVal);
+        }else{
+            $('.work-person,.covimg,.bunInfo').hide();
+        }
+        //点击类型显示相应的表单
         $('select[name="type"]').change(function(){
             var optionVal = parseInt($(this).children('option:selected').val());
-            if(optionVal==0){
-                $('.work-person,.covimg').show();
-                $('.bunInfo').hide();
-            }
-            if(optionVal==1){
-                $('.bunInfo').show();
-                $('.work-person,.covimg').hide();
-            }
+            formItem(optionVal);
         })
 
         //初始化
@@ -320,6 +321,18 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
         });
     }
 
+    //表单显示控制
+    function formItem(optionVal){
+        if(optionVal==0){
+            $('.work-person,.covimg').show();
+            $('.bunInfo').hide();
+        }
+        if(optionVal==1){
+            $('.bunInfo').show();
+            $('.work-person,.covimg').hide();
+        }
+    }
+
 
     //数据验证
     function validata() {
@@ -333,9 +346,6 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
             });
             return false;
         }
-
-        console.log($(formVal[3]).parent().parent().parent('.work-person').css('display'));
-
 
         //工号
         if($(formVal[3]).parent().parent().parent('.work-person').css('display')!='none' && $(formVal[3]).val() == ''){

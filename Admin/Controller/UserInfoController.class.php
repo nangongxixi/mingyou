@@ -27,8 +27,8 @@ class UserInfoController extends AdminController
         //echo $infop->_sql();
         $per = 14;
         $page = new \Component\Page($total, $per); //autoload        
-        $sql = "select * from `yw_userinfo` where 1=1 and status=0 $condition " . $page->limit;
-       //echo $sql;
+        $sql = "select * from `yw_userinfo` where 1=1 and status=0 $condition  order by id desc " . $page->limit;
+        //echo $sql;
         $info = $infop->query($sql);
         $pagelist = $page->fpage();
 
@@ -123,7 +123,7 @@ class UserInfoController extends AdminController
         if ($id) {
             //图片列表
             $info = D('userinfo')->find($id);
-            $imgInfo = D('images')->where('status=0 and type=0 and article_id='.$id)->select();
+            $imgInfo = D('images')->where('status=0 and type=2 and article_id='.$id)->select();
             $imgArr = [];
             foreach ($imgInfo as $k=>$v){
                 array_push($imgArr,$v['img_url']);
@@ -220,7 +220,7 @@ class UserInfoController extends AdminController
 		$imgMod = D('images');
 		//编辑排序
 		if($_POST['sort']){			
-			$inertID = $imgMod->where('id='.$_POST['id'])->save($_POST);
+			$inertID = $imgMod->where('status=0 and type=2 and id='.$_POST['id'])->save($_POST);
 			if ($inertID) {
 				$this->ajaxReturn(array(
 					'status' => true,
@@ -235,7 +235,7 @@ class UserInfoController extends AdminController
 		}
 		//删除
 		if($_POST['status']){			
-			$inertID = $imgMod->where('id='.$_POST['id'])->save($_POST);
+			$inertID = $imgMod->where('status=0 and type=2 and id='.$_POST['id'])->save($_POST);
 			if ($inertID) {
 				$this->ajaxReturn(array(
 					'status' => true,
@@ -250,7 +250,7 @@ class UserInfoController extends AdminController
 		}
 		
 		
-        $info = $imgMod->where('status=0 and article_id='.$id)->order('sort desc,id desc')->select();
+        $info = $imgMod->where('status=0 and type=2 and article_id='.$id)->order('sort desc,id desc')->select();
         $this->assign('info', $info);
         $this->display();
     }

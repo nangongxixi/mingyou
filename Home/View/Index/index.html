@@ -2,6 +2,22 @@
 <span id="head"></span>
 <script src="{$smarty.const.JS_URL}jquery-1.8.2.min.js"></script>
 
+{literal}
+<style>
+/* 本案例使用css样式 */
+.device{ width:1200px; height:auto; overflow:hidden; margin:0 auto; background:#fff; padding:10px;}
+.device .scroll{ width:100%; height:490px; overflow:hidden; position:relative;}
+.device .scroll ul{ position:absolute; left:0; top:0; overflow:hidden;}
+.device h2{ height:18px; line-height:18px; text-align:left; font-family:'MS Mincho'; font-size:12px; padding:5px 5px 10px 5px;}
+.device h2 a{ display:block; float:left; padding-right:10px;color:#686363;}
+.device ul{ overflow:hidden;}
+.device ul li{ width:300px; height:240px; margin-right:10px; margin-bottom:10px; overflow:hidden; position:relative; float:left;}
+.device ul li img{ width:300px; height:200px; position:absolute; left:0; top:0; z-index:10}
+.device ul li:hover img{opacity: 0.8;filter: alpha(opacity=80);}
+.device ul li a.link{ display:block; width:300px; height:24px; line-height:24px; text-align:center; color:#333; font-size:14px; position:absolute; left:0; bottom:0; filter: alpha(opacity=50); z-index:20;}
+</style>
+{/literal}
+
 <!-- 图片滚动 -->
 <link rel="stylesheet" href="{$smarty.const.CSS_URL}style.css">
 <script type="text/javascript" src="{$smarty.const.JS_URL}jquery.SuperSlide.2.1.1.js"></script>
@@ -78,10 +94,12 @@
             </p></div>
     </div>
 
-    <div class="mian_bottom">
+    <div class="mian_bottom" style="margin-top: 40px">
         <div class="news-list-top" style="margin-bottom: 8px">
+            <a href="/index.php/Home/List/index/catid/5">更多&gt;&gt;</a>
             <span>名优品牌</span>
         </div>
+        <!--
         <div class="case">
             <div class="case_list">
                 <div class="picScroll">
@@ -90,9 +108,9 @@
                         {foreach $v as $kk=>$vv}
                         <li class="{if $kk%2==0}mr_0{/if}">
                             <div class="case_img">
-                                <a href="" title=""><img src="/{$vv.img_url}" alt="{$vv.title}"/></a>
+                                <a href="/index.php/Home/List/detail/id/{$vv.id}" title=""><img src="/{$vv.img_url}" alt="{$vv.title}"/></a>
                             </div>
-                            <div class="case_tt"><a href="" title="/{$vv.img_url}">{$vv.title}</a></div>
+                            <div class="case_tt"><a href="/index.php/Home/List/detail/id/{$vv.id}" title="/{$vv.img_url}">{$vv.title}</a></div>
                         </li>
                         {/foreach}
                     </ul>
@@ -101,20 +119,75 @@
                     <a class="next" href="javascript:void(0)"></a>
                 </div>
                 <script type="text/javascript">
-                    $(".picScroll").slide({
-                        mainCell: "ul",
-                        effect: "leftMarquee",
-                        vis: 5,
-                        autoPlay: true,
-                        interTime: 50,
-                        switchLoad: "_src"
-                    });
+                    jQuery(".picScroll").slide({ mainCell:"ul",effect:"leftLoop",autoPlay:true });
                 </script>
             </div>
         </div>
+-->
+        <div class="device">
+            <div class="scroll">
+                <ul>
+                    {foreach $pinpai as $k=>$v}
+                        <li><a href="/index.php/Home/List/detail/id/{$v.id}"><img src="/{$v.img_url}" width="300" height="200" /></a><a href="#" class="link">{$v.title}</a></li>
+                    {/foreach}
+                </ul>
+            </div>
+        </div>
+        {literal}
+        <script>
+            $(function(){
+                var $number = Math.ceil($('.scroll ul li').length/4); //获取滚动几屏个数
+                var margin = 10; //设置图片间距
+                var $w = $('.scroll li').width() + margin; // 一屏图片的宽度
+                var $width = $w*$number*2; //设置ul宽度
+                var pre = $('.device .pre');
+                var next = $('.device .next');
+                if($number ==1){pre.hide();next.hide();}
+                $('.scroll ul').width($width);
+                var num = 0;
+                function autoscroll(){
+                    num++;
+                    if($number ==1){return false}
+                    if(num ==$number){
+                        num = 0;
+                    }
+                    var distance = -2*$w * num;
+                    $('.scroll ul').stop().animate({left:distance});
+                }
+                var scrollChange = setInterval(autoscroll,4000);
+                //鼠标悬停，暂停滚动
+                $(".scroll ul,.pre,.next").mouseover(function(){
+                    $('.scroll ul').stop()
+                    clearInterval(scrollChange);
+                });
+                // 鼠标移走，滚动继续
+                $('.scroll ul,.pre,.next').mouseout(function(){
+                    scrollChange = setInterval(autoscroll,4000);
+                });
+
+                //下一组
+                next.click(function(){
+                    num++;
+                    if(num >= $number){num = 0}
+                    var leftdis = -2*$w * num;
+                    $('.scroll ul').stop().animate({left:leftdis});
+                });
+                //上一组
+                pre.click(function(){
+                    num--;
+                    if(num < 0){num = $number-1}
+                    var rightdis = -2*$w * num;
+                    $('.scroll ul').stop().animate({left:rightdis});
+                });
+
+            });
+        </script>
+        {/literal}
+
+
     </div>
 
-    <div class="pro-nav"><a><img src="{$middleInfo[0].img_url}" alt="" style="margin-top: 30px" width="1200" height="130"></a></div>
+    <div class="pro-nav" style="margin: 0 auto"><a><img src="/{$middleInfo[0].img_url}" alt="" style="margin-top: 30px" width="1200" height="130"></a></div>
 
     <div class="pro-btm clearfix">
         <div class="pro-left">
@@ -124,7 +197,7 @@
                     <h5 class="pro-right-title">联系我们</h5>
                     <ul>
                         <li class="clearfix" style="background: rgb(227, 226, 226);">
-                            <img src="{$middleInfo[1].img_url}" alt="" style="width: 350px">
+                            <img src="/{$middleInfo[1].img_url}" alt="" style="width: 350px">
                             <div>{$middleInfo[1].discript}</div>
                         </li>
                     </ul>
@@ -137,7 +210,7 @@
                     </div>
                     <ul>
                         {foreach $news as $k=>$v}
-                        <li><a href="#">{$v.title}</a></li>
+                        <li><a href="/index.php/Home/List/detail/id/{$v.id}">{$v.title}</a></li>
                         {/foreach}
                     </ul>
                 </div>
@@ -147,7 +220,7 @@
         <div id="demo1" class="slideBox" style="width: 380px; height: 250px; overflow: hidden; float: right">
             <ul class="items">
                 {foreach $indexBanner as $k=>$v}
-                <li class="" style="width: 380px; height: 250px;"><a href="http://www.jsdaima.com/" title="这里是测试标题一"><img
+                <li class="" style="width: 380px; height: 250px;"><a href="/index.php/Home/List/detail/id/{$v.id}" title="{$v.title}"><img
                         src="/{$v.img_url}"></a></li>
                 {/foreach}
             </ul>
@@ -156,12 +229,13 @@
 
     <div class="pro-list">
         <div class="news-list-top" style="margin-bottom: 8px">
+            <a href="/index.php/Home/List/index/catid/4">更多&gt;&gt;</a>
             <span>品牌展播</span>
         </div>
         <ul>
             {foreach $pinpaizb as $k=>$v}
             <li>
-                <a class="pro-list-video">
+                <a class="pro-list-video" href="/index.php/Home/List/detail/id/{$v.id}">
                     <img src="/{$v.img_url}" alt="">
                     <div class="video-btm-text">
                         <p class="video-p1">{$v.title}</p>

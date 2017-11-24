@@ -55,7 +55,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <th class="detail-title">描述</th>
+                        <th class="detail-title">文章描述</th>
                         <td>
                            <!-- <textarea class="form-control" name="discript" rows="3"
                                       placeholder="请填写描述" errorMsg="描述不能为空">{$info.discript}</textarea>-->
@@ -64,34 +64,38 @@
                             </div>
                         </td>
                     </tr>
+                    <!--
                     <tr>
                         <th class="detail-title">产品优势（栏目页有效）</th>
                         <td>
-                            <!-- <textarea class="form-control" name="discript" rows="3"
-                                       placeholder="请填写描述" errorMsg="描述不能为空">{$info.discript}</textarea>-->
+                            <textarea class="form-control" name="discript" rows="3"
+                                       placeholder="请填写描述" errorMsg="描述不能为空">{$info.discript}</textarea>
                             <div>
                                 <textarea id="TextArea3" name="advantage" cols="20" rows="2" class="ckeditor">{$info.advantage}</textarea>
                             </div>
                         </td>
                     </tr>
+                    -->
                     <tr>
-                        <th class="detail-title">内容（栏目页有效）</th>
+                        <th class="detail-title">文章内容</th>
                         <td>
                             <div>
                                 <textarea id="TextArea1" name="content" cols="20" rows="2" class="ckeditor">{$info.content}</textarea>
                             </div>
                         </td>
                     </tr>
+                    <!--
                     <tr>
                         <th class="detail-title">产品详情（详情页有效）</th>
                         <td>
-                            <!-- <textarea class="form-control" name="discript" rows="3"
-                                       placeholder="请填写描述" errorMsg="描述不能为空">{$info.discript}</textarea>-->
+                           <textarea class="form-control" name="discript" rows="3"
+                                       placeholder="请填写描述" errorMsg="描述不能为空">{$info.discript}</textarea>
                             <div>
                                 <textarea id="TextArea4" name="detail" cols="20" rows="2" class="ckeditor">{$info.detail}</textarea>
                             </div>
                         </td>
                     </tr>
+                    -->
                     <tr>
                         <td colspan="2" style="text-align: center">
                             <button type="reset" class="btn bg-orange btn-lg " status="0">重置
@@ -113,9 +117,8 @@
         init();//初始化
 
         var discript = $.parseHTML(sessionStorage.getItem('editorcontent2'));//把html转换成实体
-        var advantage = $.parseHTML(sessionStorage.getItem('editorcontent3'));//把html转换成实体
         var content = $.parseHTML(sessionStorage.getItem('editorcontent'));//把html转换成实体
-        var detail = $.parseHTML(sessionStorage.getItem('editorcontent4'));//把html转换成实体
+
 
        // editor3.setData(advantage);//给富文本区域赋值
 
@@ -139,15 +142,12 @@
             var formData = new FormData($("#formData")[0]);
 
             var discript =  CKEDITOR.instances.TextArea2.getData();
-            var advantage =  CKEDITOR.instances.TextArea3.getData();
-            var detail =  CKEDITOR.instances.TextArea4.getData();
            //var editorcontent =  $(window.frames["yuliu_ckedtor"].document).find("body").html();
             var editorcontent = CKEDITOR.instances.TextArea1.getData();
 
             formData.append('discript', discript);
-            formData.append('advantage', advantage);
             formData.append('content', editorcontent);
-            formData.append('detail', detail);
+
 
             $.ajax({
                 url: '../article/add',
@@ -247,12 +247,6 @@
         var editor2 = CKEDITOR.replace('TextArea2', {
             filebrowserImageUploadUrl: '../manager/ck_upload'
         });
-        var editor3 = CKEDITOR.replace('TextArea3', {
-            filebrowserImageUploadUrl: '../manager/ck_upload'
-        });
-        var editor4 = CKEDITOR.replace('TextArea4', {
-            filebrowserImageUploadUrl: '../manager/ck_upload'
-        });
 
         var inputVal = JSON.parse(sessionStorage.getItem("inputVal"));
         //如果还没保存过输入，就定义一个空对象来保存
@@ -266,8 +260,7 @@
         });
         editor.setData(sessionStorage.getItem("editorcontent"));//回填富文本区域
         editor2.setData(sessionStorage.getItem("editorcontent2"));//回填富文本区域
-        editor3.setData(sessionStorage.getItem("editorcontent3"));//回填富文本区域
-        editor4.setData(sessionStorage.getItem("editorcontent4"));//回填富文本区域
+
 
 
         //保存输入
@@ -284,12 +277,7 @@
         editor2.on('change', function (event) {
             sessionStorage.setItem('editorcontent2', this.getData());
         });
-        editor3.on('change', function (event) {
-            sessionStorage.setItem('editorcontent3', this.getData());
-        });
-        editor4.on('change', function (event) {
-            sessionStorage.setItem('editorcontent4', this.getData());
-        });
+
     }
 
 

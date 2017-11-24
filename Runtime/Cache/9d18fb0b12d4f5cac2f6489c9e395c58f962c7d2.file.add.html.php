@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-15 15:36:19
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-24 10:52:38
          compiled from "D:/phpStudy/WWW/mingyou/Admin/View\category\add.html" */ ?>
-<?php /*%%SmartyHeaderCode:51445a0bd6d5423102-66687257%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:320325a17862946b9d2-35687314%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     '9d18fb0b12d4f5cac2f6489c9e395c58f962c7d2' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Admin/View\\category\\add.html',
-      1 => 1510731375,
+      1 => 1511491955,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '51445a0bd6d5423102-66687257',
+  'nocache_hash' => '320325a17862946b9d2-35687314',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5a0bd6d547518',
+  'unifunc' => 'content_5a1786294f83f',
   'variables' => 
   array (
     'categoryinfo' => 0,
@@ -27,7 +27,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a0bd6d547518')) {function content_5a0bd6d547518($_smarty_tpl) {?><?php if (!is_callable('smarty_function_html_options')) include 'D:\\phpStudy\\WWW\\mingyou\\Firame\\Library\\Vendor\\Smarty\\plugins\\function.html_options.php';
+<?php if ($_valid && !is_callable('content_5a1786294f83f')) {function content_5a1786294f83f($_smarty_tpl) {?><?php if (!is_callable('smarty_function_html_options')) include 'D:\\phpStudy\\WWW\\mingyou\\Firame\\Library\\Vendor\\Smarty\\plugins\\function.html_options.php';
 ?><!--图片上传-->
 <link rel="stylesheet" href="<?php echo @STATIC_URL;?>
 upImage/zyupload/skins/zyupload-1.0.0.min.css " type="text/css">
@@ -241,7 +241,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
                 shadeClose: true,
                 shade: 0.8,
                 area: ['500px', '90%'],
-                content: '../article/editImg/id/' + id,
+                content: '../category/editImg/id/' + id,
                 cancel: function () {
                     location.reload();
                 }

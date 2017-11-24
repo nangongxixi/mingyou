@@ -161,4 +161,45 @@ class CategoryController extends AdminController
         return $info;
     }
 
+    //编辑多图
+    function editImg($id)
+    {
+        $imgMod = D('images');
+        //编辑排序
+        if($_POST['sort']){
+            $inertID = $imgMod->where('status=0 and type=1 and id='.$_POST['id'])->save($_POST);
+            if ($inertID) {
+                $this->ajaxReturn(array(
+                    'status' => true,
+                    'msg' => '操作成功',
+                ));
+            } else {
+                $this->ajaxReturn(array(
+                    'status' => false,
+                    'msg' => '操作失败',
+                ));
+            }
+        }
+        //删除
+        if($_POST['status']){
+            $inertID = $imgMod->where('status=0 and type=1 and id='.$_POST['id'])->save($_POST);
+            if ($inertID) {
+                $this->ajaxReturn(array(
+                    'status' => true,
+                    'msg' => '操作成功',
+                ));
+            } else {
+                $this->ajaxReturn(array(
+                    'status' => false,
+                    'msg' => '操作失败',
+                ));
+            }
+        }
+
+
+        $info = $imgMod->where('status=0 and type=1 and article_id='.$id)->order('sort desc,id desc')->select();
+        $this->assign('info', $info);
+        $this->display();
+    }
+
 }

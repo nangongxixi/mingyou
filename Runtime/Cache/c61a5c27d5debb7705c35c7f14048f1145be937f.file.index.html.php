@@ -1,4 +1,4 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-21 16:05:18
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-24 13:38:44
          compiled from "D:/phpStudy/WWW/mingyou/Home/View\List\index.html" */ ?>
 <?php /*%%SmartyHeaderCode:212375a13b7c238bb30-38051393%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
@@ -7,7 +7,7 @@ $_valid = $_smarty_tpl->decodeProperties(array (
     'c61a5c27d5debb7705c35c7f14048f1145be937f' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Home/View\\List\\index.html',
-      1 => 1511251490,
+      1 => 1511501093,
       2 => 'file',
     ),
   ),
@@ -32,7 +32,7 @@ style.css">
 jquery-1.8.2.min.js"></script>
 
 <?php if (isset($_smarty_tpl->tpl_vars['other']->value['bannerImg'][0]['img_url'])){?>
-<div style="margin: 0 auto; margin: 0 0 35px"><img width="100%" src="/<?php echo $_smarty_tpl->tpl_vars['other']->value['bannerImg'][0]['img_url'];?>
+<div style="margin: 0 0 35px"><img width="100%" src="/<?php echo $_smarty_tpl->tpl_vars['other']->value['bannerImg'][0]['img_url'];?>
 "></div>
 <?php }?>
 

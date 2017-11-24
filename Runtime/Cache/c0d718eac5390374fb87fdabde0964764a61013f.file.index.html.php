@@ -1,22 +1,22 @@
-<?php /* Smarty version Smarty-3.1.6, created on 2017-11-22 16:50:47
+<?php /* Smarty version Smarty-3.1.6, created on 2017-11-24 13:20:22
          compiled from "D:/phpStudy/WWW/mingyou/Home/View\Index\index.html" */ ?>
-<?php /*%%SmartyHeaderCode:136375a0ce7a3520a43-07889784%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
+<?php /*%%SmartyHeaderCode:144665a178c7f4f75c7-76711927%%*/if(!defined('SMARTY_DIR')) exit('no direct access allowed');
 $_valid = $_smarty_tpl->decodeProperties(array (
   'file_dependency' => 
   array (
     'c0d718eac5390374fb87fdabde0964764a61013f' => 
     array (
       0 => 'D:/phpStudy/WWW/mingyou/Home/View\\Index\\index.html',
-      1 => 1511340645,
+      1 => 1511500818,
       2 => 'file',
     ),
   ),
-  'nocache_hash' => '136375a0ce7a3520a43-07889784',
+  'nocache_hash' => '144665a178c7f4f75c7-76711927',
   'function' => 
   array (
   ),
   'version' => 'Smarty-3.1.6',
-  'unifunc' => 'content_5a0ce7a357696',
+  'unifunc' => 'content_5a178c7f61c58',
   'variables' => 
   array (
     'banner' => 0,
@@ -32,10 +32,26 @@ $_valid = $_smarty_tpl->decodeProperties(array (
   ),
   'has_nocache_code' => false,
 ),false); /*/%%SmartyHeaderCode%%*/?>
-<?php if ($_valid && !is_callable('content_5a0ce7a357696')) {function content_5a0ce7a357696($_smarty_tpl) {?>
+<?php if ($_valid && !is_callable('content_5a178c7f61c58')) {function content_5a178c7f61c58($_smarty_tpl) {?>
 <span id="head"></span>
 <script src="<?php echo @JS_URL;?>
 jquery-1.8.2.min.js"></script>
+
+
+<style>
+/* 本案例使用css样式 */
+.device{ width:1200px; height:auto; overflow:hidden; margin:0 auto; background:#fff; padding:10px;}
+.device .scroll{ width:100%; height:490px; overflow:hidden; position:relative;}
+.device .scroll ul{ position:absolute; left:0; top:0; overflow:hidden;}
+.device h2{ height:18px; line-height:18px; text-align:left; font-family:'MS Mincho'; font-size:12px; padding:5px 5px 10px 5px;}
+.device h2 a{ display:block; float:left; padding-right:10px;color:#686363;}
+.device ul{ overflow:hidden;}
+.device ul li{ width:300px; height:240px; margin-right:10px; margin-bottom:10px; overflow:hidden; position:relative; float:left;}
+.device ul li img{ width:300px; height:200px; position:absolute; left:0; top:0; z-index:10}
+.device ul li:hover img{opacity: 0.8;filter: alpha(opacity=80);}
+.device ul li a.link{ display:block; width:300px; height:24px; line-height:24px; text-align:center; color:#333; font-size:14px; position:absolute; left:0; bottom:0; filter: alpha(opacity=50); z-index:20;}
+</style>
+
 
 <!-- 图片滚动 -->
 <link rel="stylesheet" href="<?php echo @CSS_URL;?>
@@ -127,10 +143,12 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
             </p></div>
     </div>
 
-    <div class="mian_bottom">
+    <div class="mian_bottom" style="margin-top: 40px">
         <div class="news-list-top" style="margin-bottom: 8px">
+            <a href="/index.php/Home/List/index/catid/5">更多&gt;&gt;</a>
             <span>名优品牌</span>
         </div>
+        <!--
         <div class="case">
             <div class="case_list">
                 <div class="picScroll">
@@ -151,11 +169,13 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
 ?>
                         <li class="<?php if ($_smarty_tpl->tpl_vars['kk']->value%2==0){?>mr_0<?php }?>">
                             <div class="case_img">
-                                <a href="" title=""><img src="/<?php echo $_smarty_tpl->tpl_vars['vv']->value['img_url'];?>
+                                <a href="/index.php/Home/List/detail/id/<?php echo $_smarty_tpl->tpl_vars['vv']->value['id'];?>
+" title=""><img src="/<?php echo $_smarty_tpl->tpl_vars['vv']->value['img_url'];?>
 " alt="<?php echo $_smarty_tpl->tpl_vars['vv']->value['title'];?>
 "/></a>
                             </div>
-                            <div class="case_tt"><a href="" title="/<?php echo $_smarty_tpl->tpl_vars['vv']->value['img_url'];?>
+                            <div class="case_tt"><a href="/index.php/Home/List/detail/id/<?php echo $_smarty_tpl->tpl_vars['vv']->value['id'];?>
+" title="/<?php echo $_smarty_tpl->tpl_vars['vv']->value['img_url'];?>
 "><?php echo $_smarty_tpl->tpl_vars['vv']->value['title'];?>
 </a></div>
                         </li>
@@ -166,20 +186,84 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
                     <a class="next" href="javascript:void(0)"></a>
                 </div>
                 <script type="text/javascript">
-                    $(".picScroll").slide({
-                        mainCell: "ul",
-                        effect: "leftMarquee",
-                        vis: 5,
-                        autoPlay: true,
-                        interTime: 50,
-                        switchLoad: "_src"
-                    });
+                    jQuery(".picScroll").slide({ mainCell:"ul",effect:"leftLoop",autoPlay:true });
                 </script>
             </div>
         </div>
+-->
+        <div class="device">
+            <div class="scroll">
+                <ul>
+                    <?php  $_smarty_tpl->tpl_vars['v'] = new Smarty_Variable; $_smarty_tpl->tpl_vars['v']->_loop = false;
+ $_smarty_tpl->tpl_vars['k'] = new Smarty_Variable;
+ $_from = $_smarty_tpl->tpl_vars['pinpai']->value; if (!is_array($_from) && !is_object($_from)) { settype($_from, 'array');}
+foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v']->value){
+$_smarty_tpl->tpl_vars['v']->_loop = true;
+ $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
+?>
+                        <li><a href="/index.php/Home/List/detail/id/<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+"><img src="/<?php echo $_smarty_tpl->tpl_vars['v']->value['img_url'];?>
+" width="300" height="200" /></a><a href="#" class="link"><?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+</a></li>
+                    <?php } ?>
+                </ul>
+            </div>
+        </div>
+        
+        <script>
+            $(function(){
+                var $number = Math.ceil($('.scroll ul li').length/4); //获取滚动几屏个数
+                var margin = 10; //设置图片间距
+                var $w = $('.scroll li').width() + margin; // 一屏图片的宽度
+                var $width = $w*$number*2; //设置ul宽度
+                var pre = $('.device .pre');
+                var next = $('.device .next');
+                if($number ==1){pre.hide();next.hide();}
+                $('.scroll ul').width($width);
+                var num = 0;
+                function autoscroll(){
+                    num++;
+                    if($number ==1){return false}
+                    if(num ==$number){
+                        num = 0;
+                    }
+                    var distance = -2*$w * num;
+                    $('.scroll ul').stop().animate({left:distance});
+                }
+                var scrollChange = setInterval(autoscroll,4000);
+                //鼠标悬停，暂停滚动
+                $(".scroll ul,.pre,.next").mouseover(function(){
+                    $('.scroll ul').stop()
+                    clearInterval(scrollChange);
+                });
+                // 鼠标移走，滚动继续
+                $('.scroll ul,.pre,.next').mouseout(function(){
+                    scrollChange = setInterval(autoscroll,4000);
+                });
+
+                //下一组
+                next.click(function(){
+                    num++;
+                    if(num >= $number){num = 0}
+                    var leftdis = -2*$w * num;
+                    $('.scroll ul').stop().animate({left:leftdis});
+                });
+                //上一组
+                pre.click(function(){
+                    num--;
+                    if(num < 0){num = $number-1}
+                    var rightdis = -2*$w * num;
+                    $('.scroll ul').stop().animate({left:rightdis});
+                });
+
+            });
+        </script>
+        
+
+
     </div>
 
-    <div class="pro-nav"><a><img src="<?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[0]['img_url'];?>
+    <div class="pro-nav" style="margin: 0 auto"><a><img src="/<?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[0]['img_url'];?>
 " alt="" style="margin-top: 30px" width="1200" height="130"></a></div>
 
     <div class="pro-btm clearfix">
@@ -190,7 +274,7 @@ $_smarty_tpl->tpl_vars['vv']->_loop = true;
                     <h5 class="pro-right-title">联系我们</h5>
                     <ul>
                         <li class="clearfix" style="background: rgb(227, 226, 226);">
-                            <img src="<?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[1]['img_url'];?>
+                            <img src="/<?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[1]['img_url'];?>
 " alt="" style="width: 350px">
                             <div><?php echo $_smarty_tpl->tpl_vars['middleInfo']->value[1]['discript'];?>
 </div>
@@ -211,7 +295,8 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v
 $_smarty_tpl->tpl_vars['v']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
 ?>
-                        <li><a href="#"><?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+                        <li><a href="/index.php/Home/List/detail/id/<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+"><?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
 </a></li>
                         <?php } ?>
                     </ul>
@@ -228,7 +313,9 @@ foreach ($_from as $_smarty_tpl->tpl_vars['v']->key => $_smarty_tpl->tpl_vars['v
 $_smarty_tpl->tpl_vars['v']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
 ?>
-                <li class="" style="width: 380px; height: 250px;"><a href="http://www.jsdaima.com/" title="这里是测试标题一"><img
+                <li class="" style="width: 380px; height: 250px;"><a href="/index.php/Home/List/detail/id/<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+" title="<?php echo $_smarty_tpl->tpl_vars['v']->value['title'];?>
+"><img
                         src="/<?php echo $_smarty_tpl->tpl_vars['v']->value['img_url'];?>
 "></a></li>
                 <?php } ?>
@@ -238,6 +325,7 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
 
     <div class="pro-list">
         <div class="news-list-top" style="margin-bottom: 8px">
+            <a href="/index.php/Home/List/index/catid/4">更多&gt;&gt;</a>
             <span>品牌展播</span>
         </div>
         <ul>
@@ -249,7 +337,8 @@ $_smarty_tpl->tpl_vars['v']->_loop = true;
  $_smarty_tpl->tpl_vars['k']->value = $_smarty_tpl->tpl_vars['v']->key;
 ?>
             <li>
-                <a class="pro-list-video">
+                <a class="pro-list-video" href="/index.php/Home/List/detail/id/<?php echo $_smarty_tpl->tpl_vars['v']->value['id'];?>
+">
                     <img src="/<?php echo $_smarty_tpl->tpl_vars['v']->value['img_url'];?>
 " alt="">
                     <div class="video-btm-text">

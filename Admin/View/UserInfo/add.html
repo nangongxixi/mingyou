@@ -223,17 +223,18 @@
     //初始化需要运行的东西
     function init() {
         //表单显示控制
-        $('.work-person,.covimg,.bunInfo').hide();
+        var id = $('input[name="id"]').val();
+        var optionVal = $('select[name="type"]').val();
+        //加入是修改，则根据修改类型显示相应表单，否则是新增
+        if(id){
+            formItem(optionVal);
+        }else{
+            $('.work-person,.covimg,.bunInfo').hide();
+        }
+        //点击类型显示相应的表单
         $('select[name="type"]').change(function(){
             var optionVal = parseInt($(this).children('option:selected').val());
-            if(optionVal==0){
-                $('.work-person,.covimg').show();
-                $('.bunInfo').hide();
-            }
-            if(optionVal==1){
-                $('.bunInfo').show();
-                $('.work-person,.covimg').hide();
-            }
+            formItem(optionVal);
         })
 
         //初始化
@@ -268,6 +269,18 @@
         });
     }
 
+    //表单显示控制
+    function formItem(optionVal){
+        if(optionVal==0){
+            $('.work-person,.covimg').show();
+            $('.bunInfo').hide();
+        }
+        if(optionVal==1){
+            $('.bunInfo').show();
+            $('.work-person,.covimg').hide();
+        }
+    }
+
 
     //数据验证
     function validata() {
@@ -281,9 +294,6 @@
             });
             return false;
         }
-
-        console.log($(formVal[3]).parent().parent().parent('.work-person').css('display'));
-
 
         //工号
         if($(formVal[3]).parent().parent().parent('.work-person').css('display')!='none' && $(formVal[3]).val() == ''){

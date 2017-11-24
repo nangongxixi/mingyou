@@ -37,11 +37,15 @@ class QueryController extends Controller
     function getQueryResult($type, $keyword)
     {
         $userInfo = D('userinfo');
-        $sql = "SELECT a.*,b.img_url FROM `yw_userinfo` a
-                LEFT JOIN yw_images b
-                ON a.id=b.article_id AND b.type=2 AND b.status=0
-                WHERE ( a.type=$type AND a.status=0  AND name LIKE '%$keyword%')
-                GROUP BY a.id";
+        $sql= "
+           SELECT * FROM 
+            (SELECT * FROM `yw_userinfo` WHERE type=$type AND status=0  AND name LIKE '%$keyword%') A
+            LEFT OUTER JOIN
+            (SELECT article_id,img_url,sort FROM `yw_images` WHERE  status=0 AND type=2 ORDER BY sort DESC) B
+            ON A.id=B.article_id
+            ORDER BY sort DESC
+            LIMIT 1
+        ";
         return $userInfo->query($sql);
     }
 

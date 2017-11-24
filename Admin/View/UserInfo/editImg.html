@@ -90,7 +90,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		$(document).on('click','.btn-success',function(){		
 			var itemID = $(this).attr('itemid');
 			var sort = $(this).parent().siblings().find('input').val();			
-			var url = '../article/editImg';
+			var url = './editImg';
 			var dataArr = {
 				"id": itemID,
 				"sort":sort
@@ -120,7 +120,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 		//删除
 		$('.deleteItem').on('click',function(){
 			var itemID = $(this).attr('itemid');						
-			var url = '../article/editImg';
+			var url = './editImg';
 			var dataArr = {
 				"id": itemID,
 				"status":1
